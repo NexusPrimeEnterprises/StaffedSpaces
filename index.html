@@ -519,6 +519,32 @@
  font-size: 1.4rem;
  box-shadow: 0 4px 15px rgba(45, 106, 106, 0.1);
  }
+ .trust-icon svg {
+ width: 24px;
+ height: 24px;
+ stroke: var(--teal);
+ stroke-width: 2;
+ }
+ 
+ .feature-icon-circle svg {
+ width: 26px;
+ height: 26px;
+ stroke: var(--gold);
+ stroke-width: 2;
+ }
+ 
+ .plan-icon svg {
+ width: 48px;
+ height: 48px;
+ stroke: var(--teal);
+ stroke-width: 1.5;
+ }
+ 
+ .plan-icon {
+ display: flex;
+ justify-content: center;
+ }
+
  
  /* ===== SECTION STYLES ===== */
  .section-header {
@@ -2161,19 +2187,19 @@
  <section class="trust-bar">
  <div class="trust-container">
  <div class="trust-item">
- <div class="trust-icon"></div>
+ <div class="trust-icon"><i data-lucide="laptop"></i></div>
  <span>Premium MacBooks & 4K Monitors</span>
  </div>
  <div class="trust-item">
- <div class="trust-icon"></div>
+ <div class="trust-icon"><i data-lucide="laptop"></i></div>
  <span>ChatGPT Pro + Claude Pro Included</span>
  </div>
  <div class="trust-item">
- <div class="trust-icon"></div>
+ <div class="trust-icon"><i data-lucide="laptop"></i></div>
  <span>Fiber + Starlink Backup</span>
  </div>
  <div class="trust-item">
- <div class="trust-icon"></div>
+ <div class="trust-icon"><i data-lucide="laptop"></i></div>
  <span>Unlimited Free Replacements</span>
  </div>
  </div>
@@ -2410,7 +2436,7 @@
  <div class="pricing-grid">
  <!-- TRIAL -->
  <div class="pricing-card">
- <div class="plan-icon"></div>
+ <div class="plan-icon"><i data-lucide="rocket"></i></div>
  <div class="plan-header">
  <div class="plan-name">Trial</div>
  <div class="plan-subtitle">Test our service for 90 days</div>
@@ -2448,7 +2474,7 @@
  <!-- PROFESSIONAL -->
  <div class="pricing-card featured">
  <div class="badge teal">Most Popular</div>
- <div class="plan-icon"></div>
+ <div class="plan-icon"><i data-lucide="briefcase"></i></div>
  <div class="plan-header">
  <div class="plan-name">Professional</div>
  <div class="plan-subtitle">Enhanced privacy, better value</div>
@@ -2486,7 +2512,7 @@
  <!-- ENTERPRISE -->
  <div class="pricing-card">
  <div class="badge green">Best Value</div>
- <div class="plan-icon"></div>
+ <div class="plan-icon"><i data-lucide="building"></i></div>
  <div class="plan-header">
  <div class="plan-name">Enterprise</div>
  <div class="plan-subtitle">Your own private office</div>
@@ -2616,28 +2642,28 @@
  
  <div class="transparency-features">
  <div class="transparency-feature">
- <div class="feature-icon-circle"></div>
+ <div class="feature-icon-circle"><i data-lucide="monitor"></i></div>
  <div>
  <h4>Live Screen Feeds</h4>
  <p>Watch any screen in real-time. See exactly what your team is working on.</p>
  </div>
  </div>
  <div class="transparency-feature">
- <div class="feature-icon-circle"></div>
+ <div class="feature-icon-circle"><i data-lucide="video"></i></div>
  <div>
  <h4>Webcam Monitoring</h4>
  <p>Verify attendance and engagement. Optional privacy mode available.</p>
  </div>
  </div>
  <div class="transparency-feature">
- <div class="feature-icon-circle">+/-</div>
+ <div class="feature-icon-circle"><i data-lucide="clock"></i></div>
  <div>
  <h4>Digital Time Tracking</h4>
  <p>Punch-in/out timestamps. Know exactly when your team starts and ends.</p>
  </div>
  </div>
  <div class="transparency-feature">
- <div class="feature-icon-circle"></div>
+ <div class="feature-icon-circle"><i data-lucide="bar-chart-2"></i></div>
  <div>
  <h4>Performance Reports</h4>
  <p>Weekly and monthly reports. Track productivity trends over time.</p>
