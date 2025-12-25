@@ -1,0 +1,3004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>StaffedSpaces - Your Team. Your Space. Fully Transparent.</title>
+ <meta name="description" content="Fully managed remote teams with complete transparency. Professional office, premium hardware, live monitoring - from $350/employee/month.">
+ <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="icon" type="image/x-icon" href="https://cdn.staffedspaces.com/favicon.ico">
+ <script src="https://unpkg.com/lucide@latest"></script>
+ <style>
+ /* Lucide Icon Styling */
+ .icon-box {
+ width: 65px;
+ height: 65px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ border-radius: 16px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-bottom: 25px;
+ box-shadow: 0 10px 25px rgba(45, 106, 106, 0.25);
+ }
+ .icon-box svg {
+ width: 28px;
+ height: 28px;
+ stroke: white;
+ stroke-width: 2;
+ }
+ .badge-icon-svg {
+ width: 40px;
+ height: 40px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ border-radius: 10px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+ .badge-icon-svg svg {
+ width: 20px;
+ height: 20px;
+ stroke: white;
+ stroke-width: 2;
+ }
+ .stat-icon svg {
+ stroke: var(--gold);
+ stroke-width: 2;
+ }
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ 
+ :root {
+ --teal: #2D6A6A;
+ --teal-light: #3a7d7d;
+ --teal-dark: #245757;
+ --gold: #D4A853;
+ --gold-light: #e4bc6a;
+ --dark-slate: #1e293b;
+ --white: #ffffff;
+ --gray-50: #f8fafc;
+ --gray-100: #f1f5f9;
+ --gray-200: #e2e8f0;
+ --gray-400: #94a3b8;
+ --gray-500: #64748b;
+ }
+ 
+ html {
+ scroll-behavior: smooth;
+ }
+ 
+ body {
+ font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+ background: var(--gray-100);
+ color: var(--dark-slate);
+ line-height: 1.6;
+ }
+ 
+ /* ===== CONTAINER SYSTEM ===== */
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 30px;
+ }
+ 
+ .container-wide {
+ max-width: 1400px;
+ margin: 0 auto;
+ padding: 0 50px;
+ }
+ 
+ /* ===== HEADER / NAVIGATION ===== */
+ .header {
+ background: var(--white);
+ padding: 15px 0;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+ }
+ 
+ .header-container {
+ max-width: 1400px;
+ margin: 0 auto;
+ padding: 0 50px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+ 
+ .logo {
+ font-size: 1.6rem;
+ font-weight: 800;
+ color: var(--dark-slate);
+ text-decoration: none;
+ letter-spacing: -0.5px;
+ }
+ 
+ .logo span {
+ color: var(--teal);
+ }
+ 
+ .nav-links {
+ display: flex;
+ gap: 35px;
+ list-style: none;
+ align-items: center;
+ }
+ 
+ .nav-links a {
+ color: var(--gray-500);
+ text-decoration: none;
+ font-weight: 500;
+ font-size: 0.95rem;
+ transition: color 0.3s;
+ }
+ 
+ .nav-links a:hover {
+ color: var(--teal);
+ }
+ 
+ .nav-cta {
+ background: var(--teal);
+ color: var(--white) !important;
+ padding: 12px 28px;
+ border-radius: 10px;
+ transition: all 0.3s !important;
+ font-weight: 600;
+ }
+ 
+ .nav-cta:hover {
+ background: var(--teal-dark) !important;
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(45, 106, 106, 0.3);
+ }
+ 
+ /* Google Translate */
+ .google-translate-wrapper {
+ display: flex;
+ align-items: center;
+ }
+ 
+ #google_translate_element .goog-te-combo {
+ padding: 8px 12px;
+ border: 1px solid var(--gray-200);
+ border-radius: 8px;
+ font-size: 0.85rem;
+ font-family: 'Plus Jakarta Sans', sans-serif;
+ color: var(--gray-500);
+ background: var(--gray-50);
+ cursor: pointer;
+ }
+ 
+ .goog-te-gadget > span, .goog-logo-link, .goog-te-banner-frame { display: none !important; }
+ body { top: 0 !important; }
+ 
+ /* ===== HERO SECTION ===== */
+ .hero {
+ position: relative;
+ min-height: 90vh;
+ display: flex;
+ align-items: center;
+ overflow: hidden;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 50%, #4a8d8d 100%);
+ }
+ 
+ .hero-background {
+ position: absolute;
+ top: 0; left: 0; right: 0; bottom: 0;
+ z-index: 1;
+ opacity: 0.12;
+ }
+ 
+ .hero-background img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ }
+ 
+ .hero-content {
+ position: relative;
+ z-index: 3;
+ width: 100%;
+ max-width: 1400px;
+ margin: 0 auto;
+ padding: 80px 50px;
+ }
+ 
+ /* Hero Slider */
+ .hero-slider {
+ position: relative;
+ width: 100%;
+ overflow: hidden;
+ }
+ 
+ .slider-container {
+ display: flex;
+ transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+ }
+ 
+ .slide {
+ min-width: 100%;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 60px;
+ align-items: center;
+ padding: 20px 0;
+ }
+ 
+ .slide-content {
+ color: var(--white);
+ }
+ 
+ .slide-eyebrow {
+ display: inline-flex;
+ align-items: center;
+ gap: 10px;
+ background: rgba(212, 168, 83, 0.2);
+ border: 1px solid rgba(212, 168, 83, 0.4);
+ padding: 10px 20px;
+ border-radius: 50px;
+ font-size: 0.85rem;
+ font-weight: 600;
+ color: var(--gold-light);
+ margin-bottom: 25px;
+ backdrop-filter: blur(10px);
+ }
+ 
+ .slide-headline {
+ font-size: 3.2rem;
+ font-weight: 800;
+ line-height: 1.1;
+ margin-bottom: 20px;
+ letter-spacing: -1px;
+ }
+ 
+ .slide-headline .highlight {
+ color: var(--gold);
+ }
+ 
+ .slide-description {
+ font-size: 1.2rem;
+ opacity: 0.9;
+ margin-bottom: 35px;
+ line-height: 1.7;
+ max-width: 500px;
+ }
+ 
+ .slide-stats {
+ display: flex;
+ gap: 20px;
+ margin-bottom: 35px;
+ flex-wrap: wrap;
+ }
+ 
+ .slide-stat {
+ background: rgba(255,255,255,0.1);
+ padding: 20px 28px;
+ border-radius: 16px;
+ backdrop-filter: blur(10px);
+ border: 1px solid rgba(255,255,255,0.15);
+ text-align: center;
+ min-width: 130px;
+ }
+ 
+ .slide-stat-number {
+ font-size: 2rem;
+ font-weight: 800;
+ color: var(--gold);
+ line-height: 1;
+ margin-bottom: 5px;
+ }
+ 
+ .slide-stat-label {
+ font-size: 0.85rem;
+ color: rgba(255,255,255,0.8);
+ }
+ 
+ .slide-visual {
+ position: relative;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ 
+ .slide-image-card {
+ background: var(--white);
+ border-radius: 20px;
+ padding: 12px;
+ box-shadow: 0 40px 80px rgba(0,0,0,0.25);
+ max-width: 100%;
+ position: relative;
+ overflow: hidden;
+ }
+ 
+ .slide-image-card img {
+ width: 100%;
+ border-radius: 12px;
+ display: block;
+ }
+ 
+ .slide-image-badge {
+ position: absolute;
+ background: var(--white);
+ padding: 12px 16px;
+ border-radius: 12px;
+ box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ font-weight: 600;
+ font-size: 0.85rem;
+ color: var(--dark-slate);
+ z-index: 10;
+ }
+ 
+ .slide-image-badge.top-right {
+ top: 25px;
+ right: 25px;
+ animation: float 3s ease-in-out infinite;
+ }
+ 
+ .slide-image-badge.bottom-right {
+ bottom: 25px;
+ right: 25px;
+ animation: float 3s ease-in-out infinite;
+ }
+ 
+ .slide-image-badge.bottom-left {
+ bottom: 25px;
+ left: 25px;
+ animation: float 3s ease-in-out infinite 1.5s;
+ }
+ 
+ .badge-icon {
+ width: 40px;
+ height: 40px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ border-radius: 10px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.1rem;
+ }
+ 
+ .badge-text-small {
+ font-size: 0.7rem;
+ color: var(--gray-500);
+ font-weight: 500;
+ }
+ 
+ .badge-text-main {
+ font-size: 0.9rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ }
+ 
+ @keyframes float {
+ 0%, 100% { transform: translateY(0); }
+ 50% { transform: translateY(-8px); }
+ }
+ 
+ .slide-ctas {
+ display: flex;
+ gap: 15px;
+ flex-wrap: wrap;
+ }
+ 
+ .btn-primary {
+ background: var(--gold);
+ color: var(--dark-slate);
+ padding: 18px 35px;
+ border-radius: 14px;
+ font-weight: 700;
+ font-size: 1rem;
+ text-decoration: none;
+ transition: all 0.3s;
+ display: inline-flex;
+ align-items: center;
+ gap: 10px;
+ border: none;
+ cursor: pointer;
+ }
+ 
+ .btn-primary:hover {
+ background: var(--gold-light);
+ transform: translateY(-3px);
+ box-shadow: 0 15px 40px rgba(212, 168, 83, 0.4);
+ }
+ 
+ .btn-secondary {
+ background: rgba(255,255,255,0.1);
+ color: var(--white);
+ padding: 18px 35px;
+ border-radius: 14px;
+ font-weight: 600;
+ font-size: 1rem;
+ text-decoration: none;
+ transition: all 0.3s;
+ border: 1px solid rgba(255,255,255,0.3);
+ backdrop-filter: blur(10px);
+ }
+ 
+ .btn-secondary:hover {
+ background: rgba(255,255,255,0.2);
+ transform: translateY(-3px);
+ }
+ 
+ .slider-nav {
+ display: flex;
+ justify-content: center;
+ gap: 12px;
+ margin-top: 50px;
+ }
+ 
+ .slider-dot {
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ background: rgba(255,255,255,0.3);
+ border: none;
+ cursor: pointer;
+ transition: all 0.3s;
+ position: relative;
+ overflow: hidden;
+ }
+ 
+ .slider-dot.active {
+ background: var(--gold);
+ width: 50px;
+ border-radius: 6px;
+ }
+ 
+ .slider-dot.active::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ background: rgba(255,255,255,0.4);
+ border-radius: 6px;
+ animation: progress 5s linear forwards;
+ }
+ 
+ @keyframes progress {
+ from { width: 0%; }
+ to { width: 100%; }
+ }
+ 
+ .hero-wave {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ z-index: 4;
+ }
+ 
+ .hero-wave svg {
+ display: block;
+ width: 100%;
+ height: 80px;
+ }
+ 
+ /* ===== TRUST BAR ===== */
+ .trust-bar {
+ background: linear-gradient(180deg, #e8f4f4 0%, #f0f7f7 100%);
+ padding: 50px 30px;
+ }
+ 
+ .trust-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 30px;
+ }
+ 
+ .trust-item {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ font-weight: 600;
+ color: var(--dark-slate);
+ font-size: 0.95rem;
+ }
+ 
+ .trust-icon {
+ width: 48px;
+ height: 48px;
+ background: var(--white);
+ border-radius: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.4rem;
+ box-shadow: 0 4px 15px rgba(45, 106, 106, 0.1);
+ }
+ 
+ /* ===== SECTION STYLES ===== */
+ .section-header {
+ text-align: center;
+ margin-bottom: 60px;
+ }
+ 
+ .section-header h2 {
+ font-size: 2.8rem;
+ font-weight: 800;
+ margin-bottom: 15px;
+ color: var(--dark-slate);
+ letter-spacing: -0.5px;
+ }
+ 
+ .section-header p {
+ font-size: 1.15rem;
+ color: var(--gray-500);
+ max-width: 600px;
+ margin: 0 auto;
+ }
+ 
+ /* ===== FEATURES SECTION ===== */
+ .features {
+ padding: 100px 20px;
+ background: var(--white);
+ }
+ 
+ .features-intro {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 60px;
+ align-items: center;
+ margin-bottom: 80px;
+ }
+ 
+ .features-intro-image {
+ position: relative;
+ border-radius: 20px;
+ overflow: hidden;
+ box-shadow: 0 30px 60px rgba(45, 106, 106, 0.15);
+ }
+ 
+ .features-intro-image img {
+ width: 100%;
+ display: block;
+ }
+ 
+ .features-intro-image::after {
+ content: '';
+ position: absolute;
+ top: 0; left: 0; right: 0; bottom: 0;
+ border: 3px solid var(--teal);
+ border-radius: 20px;
+ pointer-events: none;
+ }
+ 
+ .features-intro-content h3 {
+ font-size: 2rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ margin-bottom: 20px;
+ }
+ 
+ .features-intro-content p {
+ color: var(--gray-500);
+ font-size: 1.1rem;
+ line-height: 1.8;
+ margin-bottom: 25px;
+ }
+ 
+ .feature-highlight-list {
+ list-style: none;
+ }
+ 
+ .feature-highlight-list li {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ padding: 12px 0;
+ font-weight: 500;
+ color: var(--dark-slate);
+ }
+ 
+ .feature-highlight-list li::before {
+ content: '\2713';
+ width: 28px;
+ height: 28px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ color: var(--white);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 0.85rem;
+ font-weight: 700;
+ flex-shrink: 0;
+ }
+ 
+ .features-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 30px;
+ }
+ 
+ .feature-card {
+ background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+ border-radius: 20px;
+ padding: 35px 30px;
+ border: 1px solid var(--gray-200);
+ transition: all 0.4s;
+ position: relative;
+ overflow: hidden;
+ }
+ 
+ .feature-card::before {
+ content: '';
+ position: absolute;
+ top: 0; left: 0; right: 0;
+ height: 4px;
+ background: linear-gradient(90deg, var(--teal) 0%, var(--gold) 100%);
+ transform: scaleX(0);
+ transform-origin: left;
+ transition: transform 0.4s;
+ }
+ 
+ .feature-card:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 20px 50px rgba(45, 106, 106, 0.12);
+ border-color: var(--teal);
+ }
+ 
+ .feature-card:hover::before {
+ transform: scaleX(1);
+ }
+ 
+ .feature-icon {
+ width: 65px;
+ height: 65px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ border-radius: 16px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.8rem;
+ margin-bottom: 25px;
+ box-shadow: 0 10px 25px rgba(45, 106, 106, 0.25);
+ }
+ 
+ .feature-card h3 {
+ font-size: 1.25rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ margin-bottom: 12px;
+ }
+ 
+ .feature-card p {
+ color: var(--gray-500);
+ font-size: 0.95rem;
+ line-height: 1.7;
+ }
+ 
+ /* ===== TRANSFORMATION ===== */
+ .transformation {
+ padding: 100px 20px;
+ background: linear-gradient(180deg, #faf8f3 0%, #f7f4eb 100%);
+ }
+ 
+ .transformation-visual {
+ margin-top: 50px;
+ border-radius: 20px;
+ overflow: hidden;
+ box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+ }
+ 
+ .transformation-visual img {
+ width: 100%;
+ display: block;
+ }
+ 
+ .transformation-caption {
+ text-align: center;
+ margin-top: 30px;
+ font-size: 1.1rem;
+ color: var(--gray-500);
+ }
+ 
+ .transformation-caption strong {
+ color: var(--teal);
+ }
+ 
+ /* ===== MEDIA SECTION ===== */
+ .media-section {
+ padding: 100px 20px;
+ background: linear-gradient(180deg, #f0f7f7 0%, #e8f4f4 100%);
+ }
+ 
+ .media-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 40px;
+ margin-bottom: 60px;
+ }
+ 
+ .media-card {
+ background: var(--white);
+ border-radius: 20px;
+ overflow: hidden;
+ box-shadow: 0 10px 40px rgba(45, 106, 106, 0.1);
+ border: 1px solid var(--gray-200);
+ }
+ 
+ .media-badge {
+ display: inline-block;
+ padding: 10px 20px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ color: var(--white);
+ font-weight: 600;
+ font-size: 0.9rem;
+ }
+ 
+ .video-wrapper {
+ position: relative;
+ padding-bottom: 56.25%;
+ background: var(--dark-slate);
+ }
+ 
+ .media-info {
+ padding: 25px 30px;
+ }
+ 
+ .media-info h3 {
+ font-size: 1.3rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ margin-bottom: 10px;
+ }
+ 
+ .media-info p {
+ color: var(--gray-500);
+ font-size: 0.95rem;
+ }
+ 
+ .podcast-highlights {
+ background: var(--white);
+ border-radius: 20px;
+ padding: 40px;
+ box-shadow: 0 10px 40px rgba(45, 106, 106, 0.08);
+ }
+ 
+ .podcast-highlights h3 {
+ font-size: 1.4rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ margin-bottom: 30px;
+ text-align: center;
+ }
+ 
+ .highlights-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 20px;
+ }
+ 
+ .highlight-item {
+ display: grid;
+ grid-template-columns: auto 1fr;
+ gap: 15px;
+ padding: 15px;
+ border-radius: 12px;
+ background: var(--gray-50);
+ transition: all 0.3s;
+ }
+ 
+ .highlight-item:hover {
+ background: linear-gradient(135deg, rgba(45, 106, 106, 0.05) 0%, rgba(212, 168, 83, 0.05) 100%);
+ }
+ 
+ .highlight-time {
+ background: var(--teal);
+ color: var(--white);
+ padding: 6px 12px;
+ border-radius: 8px;
+ font-size: 0.8rem;
+ font-weight: 700;
+ height: fit-content;
+ }
+ 
+ .highlight-topic {
+ font-weight: 700;
+ color: var(--dark-slate);
+ font-size: 0.95rem;
+ }
+ 
+ .highlight-desc {
+ font-size: 0.85rem;
+ color: var(--gray-500);
+ }
+ 
+ /* ===== HOW IT WORKS ===== */
+ .how-it-works {
+ padding: 100px 20px;
+ background: var(--white);
+ }
+ 
+ .steps-container {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 30px;
+ position: relative;
+ }
+ 
+ .steps-container::before {
+ content: '';
+ position: absolute;
+ top: 45px;
+ left: 12%;
+ right: 12%;
+ height: 3px;
+ background: linear-gradient(90deg, var(--teal) 0%, var(--gold) 100%);
+ border-radius: 2px;
+ z-index: 0;
+ }
+ 
+ .step {
+ text-align: center;
+ position: relative;
+ z-index: 1;
+ }
+ 
+ .step-number {
+ width: 90px;
+ height: 90px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 2rem;
+ font-weight: 800;
+ color: var(--white);
+ margin: 0 auto 25px;
+ box-shadow: 0 15px 35px rgba(45, 106, 106, 0.3);
+ border: 5px solid var(--white);
+ }
+ 
+ .step h3 {
+ font-size: 1.15rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ margin-bottom: 12px;
+ }
+ 
+ .step p {
+ font-size: 0.9rem;
+ color: var(--gray-500);
+ line-height: 1.6;
+ }
+ 
+ /* ===== PRICING SECTION ===== */
+ .pricing-section {
+ padding: 100px 20px;
+ background: linear-gradient(180deg, #e8f4f4 0%, #f0f7f7 100%);
+ }
+ 
+ .pricing-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 30px;
+ align-items: stretch;
+ }
+ 
+ .pricing-card {
+ background: var(--white);
+ border-radius: 24px;
+ padding: 40px 32px;
+ border: 1px solid rgba(45, 106, 106, 0.1);
+ transition: transform 0.4s, box-shadow 0.4s;
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ box-shadow: 0 4px 25px rgba(45, 106, 106, 0.06);
+ height: 100%;
+ }
+ 
+ .pricing-card:hover {
+ transform: translateY(-10px);
+ box-shadow: 0 25px 50px rgba(45, 106, 106, 0.15);
+ }
+ 
+ .pricing-card.featured {
+ border: 2px solid var(--teal);
+ background: linear-gradient(180deg, #f0f7f7 0%, var(--white) 100%);
+ }
+ 
+ .badge {
+ position: absolute;
+ top: -14px;
+ left: 50%;
+ transform: translateX(-50%);
+ padding: 8px 24px;
+ border-radius: 50px;
+ font-size: 0.8rem;
+ font-weight: 700;
+ white-space: nowrap;
+ }
+ 
+ .badge.teal {
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+ color: white;
+ }
+ 
+ .badge.green {
+ background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+ color: white;
+ }
+ 
+ .plan-icon {
+ font-size: 2.5rem;
+ text-align: center;
+ margin-bottom: 15px;
+ }
+ 
+ .plan-header {
+ text-align: center;
+ margin-bottom: 20px;
+ }
+ 
+ .plan-name {
+ font-size: 1.6rem;
+ font-weight: 800;
+ color: var(--dark-slate);
+ }
+ 
+ .plan-subtitle {
+ color: var(--gray-500);
+ font-size: 0.95rem;
+ margin-top: 5px;
+ }
+ 
+ .price-container {
+ text-align: center;
+ padding: 25px 0;
+ border-top: 1px solid var(--gray-200);
+ border-bottom: 1px solid var(--gray-200);
+ margin-bottom: 25px;
+ }
+ 
+ .price {
+ font-size: 3.2rem;
+ font-weight: 800;
+ color: var(--dark-slate);
+ }
+ 
+ .price-period {
+ font-size: 0.95rem;
+ color: var(--gray-500);
+ }
+ 
+ .price-note {
+ font-size: 0.9rem;
+ color: var(--gray-500);
+ margin-top: 10px;
+ }
+ 
+ .highlight-box {
+ border-radius: 14px;
+ padding: 18px;
+ margin-bottom: 18px;
+ text-align: center;
+ }
+ 
+ .highlight-box.gold {
+ background: linear-gradient(135deg, #fef3e2 0%, #fde9cc 100%);
+ border: 1px solid #f5c77e;
+ }
+ .highlight-box.gold h4 { color: #b45309; }
+ .highlight-box.gold p { color: #c2630e; }
+ 
+ .highlight-box.yellow {
+ background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+ border: 1px solid #facc15;
+ }
+ .highlight-box.yellow h4 { color: #a16207; }
+ .highlight-box.yellow p { color: #a16207; }
+ 
+ .highlight-box.teal {
+ background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+ border: 1px solid #86efac;
+ }
+ .highlight-box.teal h4 { color: #166534; }
+ .highlight-box.teal p { color: #15803d; }
+ 
+ .highlight-box h4 {
+ font-size: 0.9rem;
+ font-weight: 600;
+ margin-bottom: 8px;
+ }
+ 
+ .highlight-box p {
+ font-size: 1.1rem;
+ font-weight: 700;
+ line-height: 1.4;
+ }
+ 
+ .info-box {
+ border-radius: 12px;
+ padding: 14px 16px;
+ margin-bottom: 20px;
+ font-size: 0.9rem;
+ min-height: 70px;
+ display: flex;
+ align-items: center;
+ }
+ 
+ .info-box.warning {
+ background: #fef3c7;
+ border: 1px solid #fcd34d;
+ color: #92400e;
+ }
+ 
+ .info-box.info {
+ background: #eff6ff;
+ border: 1px solid #93c5fd;
+ color: #1e40af;
+ }
+ 
+ .features-section {
+ flex-grow: 1;
+ }
+ 
+ .features-list {
+ list-style: none;
+ }
+ 
+ .features-list li {
+ padding: 10px 0;
+ font-size: 0.95rem;
+ color: var(--gray-500);
+ display: flex;
+ align-items: flex-start;
+ gap: 12px;
+ }
+ 
+ .features-list li.feature-category {
+ font-weight: 700;
+ color: var(--dark-slate);
+ padding-top: 18px;
+ font-size: 0.8rem;
+ text-transform: uppercase;
+ letter-spacing: 0.5px;
+ }
+ 
+ .features-list li.feature-category:first-child {
+ padding-top: 0;
+ }
+ 
+ .check { color: #22c55e; font-weight: bold; }
+ .warning-icon { color: var(--gold); font-weight: bold; }
+ 
+ .cta-button {
+ width: 100%;
+ padding: 16px;
+ border: none;
+ border-radius: 12px;
+ font-size: 1rem;
+ font-weight: 700;
+ cursor: pointer;
+ transition: all 0.3s;
+ margin-top: auto;
+ }
+ 
+ .cta-secondary {
+ background: var(--gray-100);
+ color: var(--gray-500);
+ }
+ 
+ .cta-secondary:hover {
+ background: var(--gray-200);
+ transform: translateY(-2px);
+ }
+ 
+ .cta-primary {
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+ color: white;
+ }
+ 
+ .cta-primary:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 10px 30px rgba(45, 106, 106, 0.3);
+ }
+ 
+ .cta-green {
+ background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+ color: white;
+ }
+ 
+ .cta-green:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+ }
+ 
+ /* Cost Explanation */
+ .cost-explanation {
+ margin-top: 70px;
+ background: var(--white);
+ border-radius: 24px;
+ padding: 50px;
+ border: 1px solid rgba(45, 106, 106, 0.15);
+ box-shadow: 0 10px 40px rgba(45, 106, 106, 0.08);
+ }
+ 
+ .cost-explanation h3 {
+ font-size: 1.8rem;
+ font-weight: 800;
+ margin-bottom: 25px;
+ text-align: center;
+ color: var(--dark-slate);
+ }
+ 
+ .explanation-intro {
+ color: var(--dark-slate);
+ font-size: 1.05rem;
+ margin-bottom: 12px;
+ line-height: 1.7;
+ text-align: center;
+ }
+ 
+ .explanation-detail {
+ color: var(--gray-500);
+ font-size: 0.95rem;
+ margin-bottom: 35px;
+ line-height: 1.7;
+ text-align: center;
+ }
+ 
+ .cost-comparison {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 25px;
+ }
+ 
+ .cost-item {
+ padding: 25px 20px;
+ border-radius: 16px;
+ border: 1px solid var(--gray-200);
+ position: relative;
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ }
+ 
+ .cost-item.orange {
+ background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+ border-color: #fdba74;
+ }
+ 
+ .cost-item.yellow {
+ background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+ border-color: #fde047;
+ }
+ 
+ .cost-item.green {
+ background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+ border: 2px solid #22c55e;
+ }
+ 
+ .cost-item .best-value-tag {
+ position: absolute;
+ top: -12px;
+ left: 50%;
+ transform: translateX(-50%);
+ background: #16a34a;
+ color: white;
+ font-size: 0.75rem;
+ padding: 5px 16px;
+ border-radius: 20px;
+ font-weight: 700;
+ }
+ 
+ .cost-item .plan-label {
+ font-size: 1.2rem;
+ font-weight: 800;
+ margin-bottom: 4px;
+ }
+ 
+ .cost-item.orange .plan-label { color: #c2410c; }
+ .cost-item.yellow .plan-label { color: #a16207; }
+ .cost-item.green .plan-label { color: #166534; }
+ 
+ .cost-item .employee-count {
+ font-size: 0.85rem;
+ opacity: 0.8;
+ margin-bottom: 20px;
+ }
+ 
+ .cost-item .cost-breakdown {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ flex-wrap: wrap;
+ min-height: 90px;
+ }
+ 
+ .cost-item .cost-part {
+ text-align: center;
+ }
+ 
+ .cost-item .cost-part .part-header {
+ display: block;
+ font-size: 0.65rem;
+ font-weight: 700;
+ letter-spacing: 0.5px;
+ margin-bottom: 5px;
+ opacity: 0.7;
+ }
+ 
+ .cost-item .cost-part .amount {
+ display: block;
+ font-size: 1.4rem;
+ font-weight: 800;
+ }
+ 
+ .cost-item .cost-part .calc {
+ display: block;
+ font-size: 0.7rem;
+ opacity: 0.7;
+ margin-top: 3px;
+ }
+ 
+ .cost-item .cost-part.total .amount {
+ font-size: 1.8rem;
+ background: rgba(0,0,0,0.08);
+ padding: 8px 14px;
+ border-radius: 10px;
+ }
+ 
+ .cost-item.orange .cost-part .amount { color: #ea580c; }
+ .cost-item.yellow .cost-part .amount { color: #ca8a04; }
+ .cost-item.green .cost-part .amount { color: #16a34a; }
+ 
+ .cost-item .cost-plus, .cost-item .cost-equals {
+ font-size: 1.5rem;
+ font-weight: bold;
+ opacity: 0.4;
+ }
+ 
+ .cost-item .breakdown-detail {
+ margin-top: auto;
+ padding-top: 15px;
+ border-top: 1px dashed rgba(0,0,0,0.1);
+ font-size: 0.75rem;
+ opacity: 0.7;
+ }
+ 
+ .salary-note {
+ margin-top: 25px;
+ padding: 15px 20px;
+ background: var(--gray-50);
+ border-radius: 12px;
+ font-size: 0.9rem;
+ color: var(--gray-500);
+ text-align: center;
+ }
+ 
+ .salary-note strong {
+ color: var(--dark-slate);
+ }
+ 
+ /* ===== TRANSPARENCY SECTION ===== */
+ .transparency-section {
+ padding: 120px 20px;
+ background: linear-gradient(180deg, var(--teal) 0%, var(--teal-light) 60%, #4a8d8d 100%);
+ color: var(--white);
+ position: relative;
+ overflow: hidden;
+ }
+ 
+ .transparency-section::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 80px;
+ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23f0f7f7' d='M0,50 C360,0 1080,100 1440,50 L1440,0 L0,0 Z'/%3E%3C/svg%3E") no-repeat top;
+ background-size: cover;
+ }
+ 
+ .transparency-section::after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ height: 80px;
+ background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23faf8f3' d='M0,50 C480,100 960,0 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat bottom;
+ background-size: cover;
+ }
+ 
+ .transparency-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 60px;
+ align-items: center;
+ position: relative;
+ z-index: 1;
+ }
+ 
+ .transparency-content h3 {
+ font-size: 2rem;
+ font-weight: 800;
+ margin-bottom: 20px;
+ }
+ 
+ .transparency-content > p {
+ opacity: 0.9;
+ margin-bottom: 30px;
+ line-height: 1.8;
+ font-size: 1.05rem;
+ }
+ 
+ .transparency-features {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ }
+ 
+ .transparency-feature {
+ display: flex;
+ align-items: flex-start;
+ gap: 18px;
+ background: rgba(255,255,255,0.1);
+ padding: 20px;
+ border-radius: 16px;
+ backdrop-filter: blur(10px);
+ border: 1px solid rgba(255,255,255,0.15);
+ transition: all 0.3s;
+ }
+ 
+ .transparency-feature:hover {
+ background: rgba(255,255,255,0.15);
+ transform: translateX(5px);
+ }
+ 
+ .feature-icon-circle {
+ width: 55px;
+ height: 55px;
+ background: rgba(212, 168, 83, 0.2);
+ border: 1px solid rgba(212, 168, 83, 0.4);
+ border-radius: 14px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.5rem;
+ flex-shrink: 0;
+ }
+ 
+ .transparency-feature h4 {
+ font-size: 1.1rem;
+ font-weight: 700;
+ margin-bottom: 5px;
+ }
+ 
+ .transparency-feature p {
+ font-size: 0.95rem;
+ opacity: 0.85;
+ line-height: 1.6;
+ }
+ 
+ .dashboard-preview {
+ position: relative;
+ }
+ 
+ .dashboard-card {
+ background: var(--white);
+ border-radius: 20px;
+ padding: 15px;
+ box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+ }
+ 
+ .dashboard-card img {
+ width: 100%;
+ border-radius: 12px;
+ display: block;
+ }
+ 
+ .live-indicator {
+ position: absolute;
+ top: 30px;
+ right: 30px;
+ background: var(--white);
+ padding: 10px 18px;
+ border-radius: 50px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ font-weight: 700;
+ font-size: 0.9rem;
+ color: var(--dark-slate);
+ box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+ animation: pulse-shadow 2s ease-in-out infinite;
+ }
+ 
+ .live-dot {
+ width: 12px;
+ height: 12px;
+ background: #ef4444;
+ border-radius: 50%;
+ animation: pulse 1.5s ease-in-out infinite;
+ }
+ 
+ @keyframes pulse {
+ 0%, 100% { opacity: 1; transform: scale(1); }
+ 50% { opacity: 0.7; transform: scale(1.1); }
+ }
+ 
+ @keyframes pulse-shadow {
+ 0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+ 50% { box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 0 8px rgba(239, 68, 68, 0.1); }
+ }
+ 
+ /* ===== TEAM SECTION ===== */
+ .team-section {
+ padding: 100px 20px;
+ background: linear-gradient(180deg, #faf8f3 0%, #f7f4eb 100%);
+ }
+ 
+ .section-header-dark h2 { color: var(--dark-slate); }
+ .section-header-dark p { color: var(--gray-500); }
+ 
+ .team-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 25px;
+ }
+ 
+ .team-card {
+ background: var(--white);
+ border-radius: 20px;
+ padding: 30px 25px;
+ text-align: center;
+ box-shadow: 0 4px 20px rgba(45, 106, 106, 0.06);
+ border: 1px solid var(--gray-200);
+ transition: all 0.4s;
+ }
+ 
+ .team-card:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 20px 40px rgba(45, 106, 106, 0.12);
+ border-color: var(--teal);
+ }
+ 
+ .team-avatar {
+ width: 90px;
+ height: 90px;
+ margin: 0 auto 20px;
+ border-radius: 50%;
+ overflow: hidden;
+ border: 3px solid var(--teal);
+ box-shadow: 0 5px 20px rgba(45, 106, 106, 0.2);
+ }
+ 
+ .team-avatar img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ }
+ 
+ .team-card h4 {
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ margin-bottom: 5px;
+ }
+ 
+ .team-card .role {
+ font-size: 0.85rem;
+ color: var(--teal);
+ font-weight: 600;
+ margin-bottom: 12px;
+ }
+ 
+ .team-card p {
+ font-size: 0.9rem;
+ color: var(--gray-500);
+ line-height: 1.6;
+ }
+ 
+ /* ===== GLOBAL SECTION ===== */
+ .global-section {
+ padding: 100px 20px;
+ background: var(--white);
+ }
+ 
+ .global-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 60px;
+ align-items: center;
+ }
+ 
+ .global-content h3 {
+ font-size: 2rem;
+ font-weight: 800;
+ color: var(--dark-slate);
+ margin-bottom: 20px;
+ }
+ 
+ .global-content p {
+ color: var(--gray-500);
+ font-size: 1.05rem;
+ line-height: 1.8;
+ margin-bottom: 15px;
+ }
+ 
+ .timezone-badges {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 12px;
+ margin-top: 25px;
+ }
+ 
+ .timezone-badge {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+ padding: 12px 18px;
+ border-radius: 50px;
+ border: 1px solid var(--gray-200);
+ font-size: 0.9rem;
+ font-weight: 600;
+ color: var(--dark-slate);
+ transition: all 0.3s;
+ }
+ 
+ .timezone-badge:hover {
+ border-color: var(--teal);
+ }
+ 
+ .timezone-badge .flag {
+ font-size: 1.2rem;
+ }
+ 
+ .global-image {
+ border-radius: 20px;
+ overflow: hidden;
+ box-shadow: 0 30px 60px rgba(45, 106, 106, 0.15);
+ }
+ 
+ .global-image img {
+ width: 100%;
+ display: block;
+ }
+ 
+ /* ===== CONTACT SECTION ===== */
+ .contact-section {
+ padding: 100px 20px;
+ background: linear-gradient(180deg, #f0f7f7 0%, #e8f4f4 100%);
+ }
+ 
+ .contact-grid {
+ display: grid;
+ grid-template-columns: 1fr 1.1fr;
+ gap: 50px;
+ align-items: start;
+ }
+ 
+ .contact-info h3 {
+ font-size: 2rem;
+ font-weight: 800;
+ color: var(--dark-slate);
+ margin-bottom: 15px;
+ }
+ 
+ .contact-info > p {
+ color: var(--gray-500);
+ font-size: 1.05rem;
+ line-height: 1.8;
+ margin-bottom: 30px;
+ }
+ 
+ .contact-methods {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ }
+ 
+ .contact-method {
+ display: flex;
+ align-items: center;
+ gap: 18px;
+ padding: 20px;
+ background: var(--white);
+ border-radius: 16px;
+ box-shadow: 0 4px 20px rgba(45, 106, 106, 0.06);
+ border: 1px solid var(--gray-200);
+ transition: all 0.3s;
+ }
+ 
+ .contact-method:hover {
+ transform: translateX(8px);
+ border-color: var(--teal);
+ }
+ 
+ .contact-method .method-icon {
+ width: 55px;
+ height: 55px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+ border-radius: 14px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.5rem;
+ flex-shrink: 0;
+ }
+ 
+ .contact-method h4 {
+ font-size: 1rem;
+ font-weight: 700;
+ color: var(--dark-slate);
+ margin-bottom: 3px;
+ }
+ 
+ .contact-method p {
+ font-size: 0.9rem;
+ color: var(--gray-500);
+ }
+ 
+ .contact-method a {
+ color: var(--teal);
+ text-decoration: none;
+ font-weight: 600;
+ }
+ 
+ .contact-method a:hover {
+ text-decoration: underline;
+ }
+ 
+ .partnership-image {
+ margin-top: 40px;
+ border-radius: 16px;
+ overflow: hidden;
+ box-shadow: 0 15px 40px rgba(45, 106, 106, 0.1);
+ }
+ 
+ .partnership-image img {
+ width: 100%;
+ display: block;
+ }
+ 
+ /* Contact Form */
+ .contact-form-wrapper {
+ background: var(--white);
+ border-radius: 24px;
+ padding: 45px;
+ box-shadow: 0 20px 50px rgba(45, 106, 106, 0.1);
+ border: 1px solid var(--gray-200);
+ }
+ 
+ .form-header {
+ text-align: center;
+ margin-bottom: 35px;
+ }
+ 
+ .form-header h3 {
+ font-size: 1.5rem;
+ font-weight: 800;
+ color: var(--dark-slate);
+ margin-bottom: 8px;
+ }
+ 
+ .form-header p {
+ color: var(--gray-500);
+ font-size: 0.95rem;
+ }
+ 
+ .form-group {
+ margin-bottom: 22px;
+ }
+ 
+ .form-group label {
+ display: block;
+ font-size: 0.9rem;
+ font-weight: 600;
+ color: var(--dark-slate);
+ margin-bottom: 8px;
+ }
+ 
+ .form-group .required {
+ color: #ef4444;
+ }
+ 
+ .form-group .hint {
+ font-weight: 400;
+ color: var(--gray-400);
+ font-size: 0.85rem;
+ }
+ 
+ .form-control {
+ width: 100%;
+ padding: 14px 18px;
+ border: 2px solid var(--gray-200);
+ border-radius: 12px;
+ font-size: 1rem;
+ font-family: inherit;
+ color: var(--dark-slate);
+ transition: all 0.3s;
+ background: var(--white);
+ }
+ 
+ .form-control:focus {
+ outline: none;
+ border-color: var(--teal);
+ box-shadow: 0 0 0 4px rgba(45, 106, 106, 0.1);
+ }
+ 
+ .form-control::placeholder {
+ color: var(--gray-400);
+ }
+ 
+ textarea.form-control {
+ min-height: 120px;
+ resize: vertical;
+ }
+ 
+ .phone-input-group {
+ display: flex;
+ gap: 12px;
+ }
+ 
+ .phone-input-group select {
+ width: 130px;
+ flex-shrink: 0;
+ }
+ 
+ .phone-input-group input {
+ flex: 1;
+ }
+ 
+ .checkbox-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 12px;
+ }
+ 
+ .checkbox-item {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ padding: 12px 15px;
+ background: var(--gray-50);
+ border-radius: 10px;
+ cursor: pointer;
+ transition: all 0.3s;
+ border: 2px solid transparent;
+ }
+ 
+ .checkbox-item:hover {
+ background: var(--gray-100);
+ }
+ 
+ .checkbox-item:has(input:checked) {
+ background: linear-gradient(135deg, rgba(45, 106, 106, 0.08) 0%, rgba(212, 168, 83, 0.08) 100%);
+ border-color: var(--teal);
+ }
+ 
+ .checkbox-item input[type="checkbox"] {
+ width: 18px;
+ height: 18px;
+ accent-color: var(--teal);
+ cursor: pointer;
+ }
+ 
+ .checkbox-item label {
+ font-size: 0.9rem;
+ color: var(--gray-500);
+ cursor: pointer;
+ margin-bottom: 0;
+ }
+ 
+ .form-submit {
+ width: 100%;
+ padding: 18px 24px;
+ background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+ color: var(--white);
+ border: none;
+ border-radius: 14px;
+ font-size: 1.1rem;
+ font-weight: 700;
+ cursor: pointer;
+ transition: all 0.3s;
+ font-family: inherit;
+ }
+ 
+ .form-submit:hover {
+ transform: translateY(-3px);
+ box-shadow: 0 15px 40px rgba(45, 106, 106, 0.3);
+ }
+ 
+ .form-note {
+ text-align: center;
+ font-size: 0.85rem;
+ color: var(--gray-400);
+ margin-top: 20px;
+ }
+ 
+ .form-note a {
+ color: var(--teal);
+ text-decoration: none;
+ }
+ 
+ /* ===== FOOTER ===== */
+ .footer {
+ background: var(--dark-slate);
+ color: var(--white);
+ padding: 80px 20px 30px;
+ }
+ 
+ .footer-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+ 
+ .footer-grid {
+ display: grid;
+ grid-template-columns: 1.5fr repeat(3, 1fr);
+ gap: 50px;
+ margin-bottom: 60px;
+ }
+ 
+ .footer-brand .logo {
+ font-size: 1.6rem;
+ font-weight: 800;
+ margin-bottom: 15px;
+ }
+ 
+ .footer-brand .logo span {
+ color: var(--teal-light);
+ }
+ 
+ .footer-brand p {
+ color: var(--gray-400);
+ font-size: 0.95rem;
+ line-height: 1.7;
+ max-width: 280px;
+ }
+ 
+ .footer-column h4 {
+ font-size: 1rem;
+ font-weight: 700;
+ margin-bottom: 20px;
+ color: var(--white);
+ }
+ 
+ .footer-column ul {
+ list-style: none;
+ }
+ 
+ .footer-column li {
+ margin-bottom: 12px;
+ }
+ 
+ .footer-column a {
+ color: var(--gray-400);
+ text-decoration: none;
+ font-size: 0.95rem;
+ transition: all 0.3s;
+ }
+ 
+ .footer-column a:hover {
+ color: var(--teal-light);
+ padding-left: 5px;
+ }
+ 
+ .footer-bottom {
+ border-top: 1px solid rgba(255,255,255,0.1);
+ padding-top: 30px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 20px;
+ }
+ 
+ .footer-bottom p {
+ color: var(--gray-500);
+ font-size: 0.9rem;
+ }
+ 
+ .footer-legal {
+ display: flex;
+ gap: 25px;
+ }
+ 
+ .footer-legal a {
+ color: var(--gray-500);
+ text-decoration: none;
+ font-size: 0.9rem;
+ transition: color 0.3s;
+ }
+ 
+ .footer-legal a:hover {
+ color: var(--teal-light);
+ }
+ 
+ /* ===== RESPONSIVE ===== */
+ @media (max-width: 1024px) {
+ .slide {
+ grid-template-columns: 1fr;
+ gap: 40px;
+ }
+ 
+ .slide-content { text-align: center; }
+ .slide-visual { max-width: 550px; margin: 0 auto; }
+ .slide-headline { font-size: 2.5rem; }
+ .slide-stats { justify-content: center; }
+ .slide-ctas { justify-content: center; }
+ .slide-description { margin-left: auto; margin-right: auto; }
+ 
+ .hero-content, .container-wide { padding: 60px 30px; }
+ 
+ .features-intro, .transparency-grid, .global-grid, .contact-grid {
+ grid-template-columns: 1fr;
+ gap: 40px;
+ }
+ 
+ .features-grid { grid-template-columns: repeat(2, 1fr); }
+ .pricing-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
+ .pricing-card.featured { order: -1; }
+ .team-grid { grid-template-columns: repeat(2, 1fr); }
+ .cost-comparison { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+ .media-grid { grid-template-columns: 1fr; }
+ .steps-container { grid-template-columns: repeat(2, 1fr); }
+ .steps-container::before { display: none; }
+ .footer-grid { grid-template-columns: repeat(2, 1fr); }
+ }
+ 
+ @media (max-width: 768px) {
+ .nav-links { display: none; }
+ .header-container { padding: 0 20px; }
+ .hero-content { padding: 50px 20px; }
+ .slide-headline { font-size: 2rem; }
+ .section-header h2 { font-size: 2rem; }
+ .features-grid { grid-template-columns: 1fr; }
+ .trust-container { justify-content: center; }
+ .highlights-grid { grid-template-columns: 1fr; }
+ .steps-container { grid-template-columns: 1fr; }
+ .team-grid { grid-template-columns: 1fr; max-width: 350px; margin: 0 auto; }
+ .checkbox-grid { grid-template-columns: 1fr; }
+ .footer-grid { grid-template-columns: 1fr; text-align: center; }
+ .footer-brand p { max-width: 100%; }
+ .footer-bottom { flex-direction: column; text-align: center; }
+ .contact-form-wrapper { padding: 30px 25px; }
+ .cost-explanation { padding: 30px 25px; }
+ .container { padding: 0 20px; }
+ }
+ </style>
+</head>
+<body>
+
+ <!-- ==================== HEADER ==================== -->
+ <header class="header">
+ <div class="header-container">
+ <a href="#" class="logo">Staffed<span>Spaces</span></a>
+ <nav>
+ <ul class="nav-links">
+ <li><a href="#features">Features</a></li>
+ <li><a href="#pricing">Pricing</a></li>
+ <li><a href="#transparency">Transparency</a></li>
+ <li><a href="#video">Demo</a></li>
+ <li class="google-translate-wrapper">
+ <div id="google_translate_element"></div>
+ </li>
+ <li><a href="#contact" class="nav-cta">Get Started</a></li>
+ </ul>
+ </nav>
+ </div>
+ </header>
+
+ <!-- ==================== HERO SECTION ==================== -->
+ <section class="hero">
+ <div class="hero-background">
+ <img src="https://cdn.staffedspaces.com/assets/NB_004_aerial_view_office_floor_geometric_workstation_layout_21x9.png" alt="Modern office">
+ </div>
+ 
+ <div class="hero-content">
+ <div class="hero-slider">
+ <div class="slider-container" id="sliderContainer">
+ 
+ <!-- SLIDE 1: Price Per Hour -->
+ <div class="slide">
+ <div class="slide-content">
+ <div class="slide-eyebrow"><i data-lucide="banknote" style="width:16px;height:16px;stroke:currentColor"></i> Unbeatable Hourly Rate</div>
+ <h1 class="slide-headline">
+ Professional Work for<br><span class="highlight">$1.47 per Hour</span>
+ </h1>
+ <p class="slide-description">
+ All-inclusive: Premium hardware, professional office, live monitoring, AI tools, 24/7 security — no hidden costs, no surprises.
+ </p>
+ <div class="slide-stats">
+ <div class="slide-stat">
+ <div class="slide-stat-number">$1.47</div>
+ <div class="slide-stat-label">Per Hour</div>
+ </div>
+ <div class="slide-stat">
+ <div class="slide-stat-number">90%</div>
+ <div class="slide-stat-label">Cost Savings</div>
+ </div>
+ <div class="slide-stat">
+ <div class="slide-stat-number">$0</div>
+ <div class="slide-stat-label">Hidden Fees</div>
+ </div>
+ </div>
+ <div class="slide-ctas">
+ <a href="#contact" class="btn-primary">Book Consultation →</a>
+ <a href="#pricing" class="btn-secondary">View Pricing</a>
+ </div>
+ </div>
+ <div class="slide-visual">
+ <div class="slide-image-card">
+ <img src="https://cdn.staffedspaces.com/assets/INF_006_western_vs_staffedspaces_cost_bar_chart_dramatic_16x9.png" alt="Cost comparison chart">
+ <div class="slide-image-badge bottom-right">
+ <div class="badge-icon-svg"><i data-lucide="trending-down"></i></div>
+ <div>
+ <div class="badge-text-small">Savings</div>
+ <div class="badge-text-main">90%+ vs. Western</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <!-- SLIDE 2: Full Team Cost -->
+ <div class="slide">
+ <div class="slide-content">
+ <div class="slide-eyebrow"><i data-lucide="users" style="width:16px;height:16px;stroke:currentColor"></i> Complete Team</div>
+ <h1 class="slide-headline">
+ 20 Employees.<br><span class="highlight">$7,500/Month.</span>
+ </h1>
+ <p class="slide-description">
+ A full team for less than what a single employee costs in Western countries. Scale your business without scaling your costs.
+ </p>
+ <div class="slide-stats">
+ <div class="slide-stat">
+ <div class="slide-stat-number">20</div>
+ <div class="slide-stat-label">Employees</div>
+ </div>
+ <div class="slide-stat">
+ <div class="slide-stat-number">$7,500</div>
+ <div class="slide-stat-label">per Month</div>
+ </div>
+ <div class="slide-stat">
+ <div class="slide-stat-number">5,100</div>
+ <div class="slide-stat-label">Hours/Month</div>
+ </div>
+ </div>
+ <div class="slide-ctas">
+ <a href="#contact" class="btn-primary">Build Your Team →</a>
+ <a href="#video" class="btn-secondary">Watch Demo</a>
+ </div>
+ </div>
+ <div class="slide-visual">
+ <div class="slide-image-card">
+ <img src="https://cdn.staffedspaces.com/assets/INF_004_total_cost_breakdown_pie_charts_three_packages_16x9.png" alt="Cost breakdown">
+ <div class="slide-image-badge bottom-right">
+ <div class="badge-icon-svg"><i data-lucide="zap"></i></div>
+ <div>
+ <div class="badge-text-small">Capacity</div>
+ <div class="badge-text-main">5,100 Hrs/Month</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <!-- SLIDE 3: Transparency -->
+ <div class="slide">
+ <div class="slide-content">
+ <div class="slide-eyebrow"><i data-lucide="eye" style="width:16px;height:16px;stroke:currentColor"></i> 100% Transparency</div>
+ <h1 class="slide-headline">
+ See <span class="highlight">Every Screen</span><br>in Real-Time.
+ </h1>
+ <p class="slide-description">
+ Live monitoring of every workstation. Webcam feeds. Digital time tracking. No black box — you see exactly what your team is doing, always.
+ </p>
+ <div class="slide-stats">
+ <div class="slide-stat">
+ <div class="slide-stat-number">24/7</div>
+ <div class="slide-stat-label">Live Access</div>
+ </div>
+ <div class="slide-stat">
+ <div class="slide-stat-number stat-icon"><i data-lucide="monitor" style="width:32px;height:32px"></i></div>
+ <div class="slide-stat-label">Screen Feeds</div>
+ </div>
+ <div class="slide-stat">
+ <div class="slide-stat-number stat-icon"><i data-lucide="video" style="width:32px;height:32px"></i></div>
+ <div class="slide-stat-label">Webcam Feeds</div>
+ </div>
+ </div>
+ <div class="slide-ctas">
+ <a href="#transparency" class="btn-primary">Learn More →</a>
+ <a href="#video" class="btn-secondary">Live Demo</a>
+ </div>
+ </div>
+ <div class="slide-visual">
+ <div class="slide-image-card">
+ <img src="https://cdn.staffedspaces.com/assets/NB_003_monitoring_dashboard_large_screen_grid_display_16x9.png" alt="Live monitoring dashboard">
+ <div class="slide-image-badge top-right">
+ <div class="badge-icon-svg"><i data-lucide="radio"></i></div>
+ <div>
+ <div class="badge-text-small">Status</div>
+ <div class="badge-text-main">LIVE</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ </div>
+ 
+ <div class="slider-nav">
+ <button class="slider-dot active" data-slide="0"></button>
+ <button class="slider-dot" data-slide="1"></button>
+ <button class="slider-dot" data-slide="2"></button>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="hero-wave">
+ <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+ <path fill="#e8f4f4" d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z"/>
+ </svg>
+ </div>
+ </section>
+
+ <!-- ==================== TRUST BAR ==================== -->
+ <section class="trust-bar">
+ <div class="trust-container">
+ <div class="trust-item">
+ <div class="trust-icon"></div>
+ <span>Premium MacBooks & 4K Monitors</span>
+ </div>
+ <div class="trust-item">
+ <div class="trust-icon"></div>
+ <span>ChatGPT Pro + Claude Pro Included</span>
+ </div>
+ <div class="trust-item">
+ <div class="trust-icon"></div>
+ <span>Fiber + Starlink Backup</span>
+ </div>
+ <div class="trust-item">
+ <div class="trust-icon"></div>
+ <span>Unlimited Free Replacements</span>
+ </div>
+ </div>
+ </section>
+
+ <!-- ==================== FEATURES ==================== -->
+ <section class="features" id="features">
+ <div class="container">
+ <div class="section-header">
+ <h2>Everything You Need. Nothing You Don't.</h2>
+ <p>A fully equipped office with premium hardware, professional employees, and complete transparency.</p>
+ </div>
+ 
+ <div class="features-intro">
+ <div class="features-intro-image">
+ <img src="https://cdn.staffedspaces.com/assets/MJ_002_diverse_professionals_collaborating_workstations_contemporary_office_16x9.png" alt="Diverse team collaborating">
+ </div>
+ <div class="features-intro-content">
+ <h3>Your Team, Our Infrastructure</h3>
+ <p>We handle the office, hardware, security, and HR — you focus on growing your business. Every employee works in a professional environment with enterprise-grade equipment.</p>
+ <ul class="feature-highlight-list">
+ <li>Private rooms or shared spaces — your choice</li>
+ <li>Watch any screen or webcam in real-time</li>
+ <li>1:1 salary pass-through — zero markup on wages</li>
+ <li>Replace anyone, anytime — no questions asked</li>
+ </ul>
+ </div>
+ </div>
+ 
+ <div class="features-grid">
+ <div class="feature-card">
+ <div class="icon-box"><i data-lucide="laptop"></i></div>
+ <h3>Premium Hardware</h3>
+ <p>Brand new MacBooks, 28" 4K monitors, Jabra headsets — everything for maximum productivity.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon-box"><i data-lucide="eye"></i></div>
+ <h3>Live Monitoring</h3>
+ <p>Watch every screen and webcam in real-time. Know exactly what your team is doing, always.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon-box"><i data-lucide="bot"></i></div>
+ <h3>AI-Powered Workforce</h3>
+ <p>Every employee has access to ChatGPT Pro, Claude Pro, and Gemini Ultra for maximum efficiency.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon-box"><i data-lucide="zap"></i></div>
+ <h3>Uninterrupted Power</h3>
+ <p>UPS batteries in every room plus diesel generators. Your team works even during outages.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon-box"><i data-lucide="shield"></i></div>
+ <h3>24/7 Security</h3>
+ <p>On-site security guards around the clock. Your hardware and data are always protected.</p>
+ </div>
+ <div class="feature-card">
+ <div class="icon-box"><i data-lucide="refresh-cw"></i></div>
+ <h3>Unlimited Replacements</h3>
+ <p>Not happy with someone? Free replacement within 2-4 weeks. No questions asked.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ==================== TRANSFORMATION ==================== -->
+ <section class="transformation">
+ <div class="container">
+ <div class="section-header">
+ <h2>From Overwhelmed to Operational</h2>
+ <p>See how businesses transform when they delegate to a professional remote team.</p>
+ </div>
+ <div class="transformation-visual">
+ <img src="https://cdn.staffedspaces.com/assets/NB_039_before_after_office_transformation_split_image_concept_16x9.png" alt="Before and after transformation">
+ </div>
+ <p class="transformation-caption">
+ <strong>Left:</strong> 80-hour weeks, turning down work, limited capacity. 
+ <strong>Right:</strong> Scaling operations, work-life balance, 24/7 capability.
+ </p>
+ </div>
+ </section>
+
+ <!-- ==================== MEDIA SECTION ==================== -->
+ <section class="media-section" id="video">
+ <div class="container">
+ <div class="section-header">
+ <h2>See & Hear How It Works</h2>
+ <p>Watch our demo or listen to our deep-dive podcast explaining the complete business model.</p>
+ </div>
+ 
+ <div class="media-grid">
+ <div class="media-card">
+ <div class="media-badge"> Podcast</div>
+ <div class="video-wrapper">
+ <iframe 
+ width="100%" 
+ height="100%" 
+ src="https://www.youtube.com/embed/Rf3eMp3G2As?si=z2gVAjxtAhtONQhN" 
+ title="StaffedSpaces Podcast" 
+ frameborder="0" 
+ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+ referrerpolicy="strict-origin-when-cross-origin" 
+ allowfullscreen
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+ </iframe>
+ </div>
+ <div class="media-info">
+ <h3>The StaffedSpaces Equation</h3>
+ <p>12-minute deep dive covering costs, monitoring, hiring, and the zero-risk guarantee.</p>
+ </div>
+ </div>
+ 
+ <div class="media-card">
+ <div class="media-badge"> Video Demo</div>
+ <div class="video-wrapper">
+ <video 
+ controls 
+ playsinline
+ style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+ <source src="https://staffedspaces.com/videos/staffed-spaces-work.mov" type="video/quicktime">
+ <source src="https://staffedspaces.com/videos/staffed-spaces-work.mov" type="video/mp4">
+ </video>
+ </div>
+ <div class="media-info">
+ <h3>Live Monitoring in Action</h3>
+ <p>See exactly how your team works in real-time from our professional office in Bangladesh.</p>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="podcast-highlights">
+ <h3>What You'll Learn in the Podcast</h3>
+ <div class="highlights-grid">
+ <div class="highlight-item">
+ <span class="highlight-time">0:47</span>
+ <div>
+ <span class="highlight-topic">The StaffedSpaces Equation</span><br>
+ <span class="highlight-desc">How 8 workstations support 20 employees</span>
+ </div>
+ </div>
+ <div class="highlight-item">
+ <span class="highlight-time">2:15</span>
+ <div>
+ <span class="highlight-topic">5,100 Hours Per Month</span><br>
+ <span class="highlight-desc">The massive capacity you get from a single room</span>
+ </div>
+ </div>
+ <div class="highlight-item">
+ <span class="highlight-time">3:47</span>
+ <div>
+ <span class="highlight-topic">What's in the $4,000</span><br>
+ <span class="highlight-desc">MacBooks, 4K monitors, internet, security & more</span>
+ </div>
+ </div>
+ <div class="highlight-item">
+ <span class="highlight-time">5:13</span>
+ <div>
+ <span class="highlight-topic">Live Monitoring Dashboard</span><br>
+ <span class="highlight-desc">Real-time feeds of every screen and webcam</span>
+ </div>
+ </div>
+ <div class="highlight-item">
+ <span class="highlight-time">5:53</span>
+ <div>
+ <span class="highlight-topic">AI-Augmented Employees</span><br>
+ <span class="highlight-desc">ChatGPT Pro, Claude Pro — trained experts</span>
+ </div>
+ </div>
+ <div class="highlight-item">
+ <span class="highlight-time">7:27</span>
+ <div>
+ <span class="highlight-topic">Zero-Risk Guarantee</span><br>
+ <span class="highlight-desc">Unlimited free replacements, no questions</span>
+ </div>
+ </div>
+ <div class="highlight-item">
+ <span class="highlight-time">8:48</span>
+ <div>
+ <span class="highlight-topic">Real Example: Tax Firm</span><br>
+ <span class="highlight-desc">95% expert time unlocked — 8:1 ROI</span>
+ </div>
+ </div>
+ <div class="highlight-item">
+ <span class="highlight-time">10:45</span>
+ <div>
+ <span class="highlight-topic">Global Cost Comparison</span><br>
+ <span class="highlight-desc">90%+ savings vs. Western hiring</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ==================== HOW IT WORKS ==================== -->
+ <section class="how-it-works">
+ <div class="container">
+ <div class="section-header">
+ <h2>How It Works</h2>
+ <p>From consultation to fully operational team in just 2-4 weeks.</p>
+ </div>
+ <div class="steps-container">
+ <div class="step">
+ <div class="step-number">1</div>
+ <h3>Tell Us Your Needs</h3>
+ <p>Describe the roles you need. Customer support, data entry, content, development — we cover it all.</p>
+ </div>
+ <div class="step">
+ <div class="step-number">2</div>
+ <h3>We Find Candidates</h3>
+ <p>Our HR team presents 2-3 pre-qualified candidates per role. You interview and choose.</p>
+ </div>
+ <div class="step">
+ <div class="step-number">3</div>
+ <h3>Your Team Starts</h3>
+ <p>Teams start on the 1st or 15th. Full onboarding and training included.</p>
+ </div>
+ <div class="step">
+ <div class="step-number">4</div>
+ <h3>Monitor & Scale</h3>
+ <p>Watch your team work in real-time. Scale up anytime by adding more rooms.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ==================== PRICING ==================== -->
+ <section class="pricing-section" id="pricing">
+ <div class="container">
+ <div class="section-header">
+ <h2>Simple, Transparent Pricing</h2>
+ <p>Choose the plan that fits your needs. Scale up anytime as your team grows.</p>
+ </div>
+ 
+ <div class="pricing-grid">
+ <!-- TRIAL -->
+ <div class="pricing-card">
+ <div class="plan-icon"></div>
+ <div class="plan-header">
+ <div class="plan-name">Trial</div>
+ <div class="plan-subtitle">Test our service for 90 days</div>
+ </div>
+ <div class="price-container">
+ <span class="price">$750</span>
+ <span class="price-period">/ workstation / month</span>
+ <p class="price-note">$1,500/month for 2 workstations</p>
+ </div>
+ <div class="highlight-box gold">
+ <h4>Team Size</h4>
+ <p>2 Workstations<br>Up to 5 Employees</p>
+ </div>
+ <div class="info-box warning">
+ ⚠ Shared room — limited privacy.<br>After 90 days: upgrade to 4+ required.
+ </div>
+ <div class="features-section">
+ <ul class="features-list">
+ <li class="feature-category">Workspace & Hardware</li>
+ <li><span class="warning-icon">•</span> Shared room</li>
+ <li><span class="check">✓</span> MacBooks + 4K monitors</li>
+ <li><span class="check">✓</span> Jabra headsets</li>
+ <li class="feature-category">Infrastructure</li>
+ <li><span class="check">✓</span> Fiber + backup internet</li>
+ <li><span class="check">✓</span> UPS + generator</li>
+ <li><span class="check">✓</span> 24/7 security</li>
+ <li class="feature-category">Support</li>
+ <li><span class="warning-icon">•</span> Shared account manager</li>
+ <li><span class="warning-icon">•</span> 2 free replacements</li>
+ </ul>
+ </div>
+ <button class="cta-button cta-secondary">Start Trial</button>
+ </div>
+ 
+ <!-- PROFESSIONAL -->
+ <div class="pricing-card featured">
+ <div class="badge teal">Most Popular</div>
+ <div class="plan-icon"></div>
+ <div class="plan-header">
+ <div class="plan-name">Professional</div>
+ <div class="plan-subtitle">Enhanced privacy, better value</div>
+ </div>
+ <div class="price-container">
+ <span class="price">$650</span>
+ <span class="price-period">/ workstation / month</span>
+ <p class="price-note">$2,600/month for 4 workstations</p>
+ </div>
+ <div class="highlight-box yellow">
+ <h4>Team Size</h4>
+ <p>4 Workstations<br>Up to 10 Employees</p>
+ </div>
+ <div class="info-box info">
+ Semi-private area — your team in a separated section.
+ </div>
+ <div class="features-section">
+ <ul class="features-list">
+ <li class="feature-category">Workspace & Hardware</li>
+ <li><span class="check">✓</span> Semi-private area</li>
+ <li><span class="check">✓</span> MacBooks + 4K monitors</li>
+ <li><span class="check">✓</span> Jabra headsets</li>
+ <li class="feature-category">Infrastructure</li>
+ <li><span class="check">✓</span> Fiber + backup internet</li>
+ <li><span class="check">✓</span> UPS + generator</li>
+ <li><span class="check">✓</span> 24/7 security</li>
+ <li class="feature-category">Support</li>
+ <li><span class="check">✓</span> Dedicated account manager</li>
+ <li><span class="check">✓</span> Unlimited replacements</li>
+ </ul>
+ </div>
+ <button class="cta-button cta-primary">Get Started</button>
+ </div>
+ 
+ <!-- ENTERPRISE -->
+ <div class="pricing-card">
+ <div class="badge green">Best Value</div>
+ <div class="plan-icon"></div>
+ <div class="plan-header">
+ <div class="plan-name">Enterprise</div>
+ <div class="plan-subtitle">Your own private office</div>
+ </div>
+ <div class="price-container">
+ <span class="price">$500</span>
+ <span class="price-period">/ workstation / month</span>
+ <p class="price-note">$4,000/month for 8 workstations</p>
+ </div>
+ <div class="highlight-box teal">
+ <h4>Team Size</h4>
+ <p>8+ Workstations<br>Up to 20+ Employees</p>
+ </div>
+ <div class="info-box info">
+ Dedicated private room — exclusively for your company.
+ </div>
+ <div class="features-section">
+ <ul class="features-list">
+ <li class="feature-category">Workspace & Hardware</li>
+ <li><span class="check">✓</span> <strong>Private room</strong></li>
+ <li><span class="check">✓</span> MacBooks + 4K monitors</li>
+ <li><span class="check">✓</span> Jabra headsets</li>
+ <li class="feature-category">Infrastructure</li>
+ <li><span class="check">✓</span> Fiber + backup internet</li>
+ <li><span class="check">✓</span> UPS + generator</li>
+ <li><span class="check">✓</span> 24/7 security</li>
+ <li class="feature-category">Support</li>
+ <li><span class="check">✓</span> Dedicated account manager</li>
+ <li><span class="check">✓</span> <strong>Full HR team</strong></li>
+ </ul>
+ </div>
+ <button class="cta-button cta-green">Contact Sales</button>
+ </div>
+ </div>
+ 
+ <!-- Cost Explanation -->
+ <div class="cost-explanation">
+ <h3>Understanding Your True Cost Per Employee</h3>
+ <p class="explanation-intro">
+ Your total cost = <strong>Workspace</strong> (infrastructure, hardware, security) + <strong>Salary</strong> (passed through 1:1).
+ </p>
+ <p class="explanation-detail">
+ Larger teams = lower cost per person. The infrastructure is spread across more employees.
+ </p>
+ <div class="cost-comparison">
+ <div class="cost-item orange">
+ <div class="plan-label">Trial</div>
+ <div class="employee-count">5 employees</div>
+ <div class="cost-breakdown">
+ <div class="cost-part">
+ <span class="part-header">WORKSPACE</span>
+ <span class="amount">$300</span>
+ </div>
+ <div class="cost-plus">+</div>
+ <div class="cost-part">
+ <span class="part-header">SALARY</span>
+ <span class="amount">$150</span>
+ </div>
+ <div class="cost-equals">=</div>
+ <div class="cost-part total">
+ <span class="amount">$450</span>
+ </div>
+ </div>
+ <div class="breakdown-detail">$2,250 total/month</div>
+ </div>
+ <div class="cost-item yellow">
+ <div class="plan-label">Professional</div>
+ <div class="employee-count">10 employees</div>
+ <div class="cost-breakdown">
+ <div class="cost-part">
+ <span class="part-header">WORKSPACE</span>
+ <span class="amount">$260</span>
+ </div>
+ <div class="cost-plus">+</div>
+ <div class="cost-part">
+ <span class="part-header">SALARY</span>
+ <span class="amount">$150</span>
+ </div>
+ <div class="cost-equals">=</div>
+ <div class="cost-part total">
+ <span class="amount">$410</span>
+ </div>
+ </div>
+ <div class="breakdown-detail">$4,100 total/month</div>
+ </div>
+ <div class="cost-item green">
+ <div class="best-value-tag">Best Value!</div>
+ <div class="plan-label">Enterprise</div>
+ <div class="employee-count">20 employees</div>
+ <div class="cost-breakdown">
+ <div class="cost-part">
+ <span class="part-header">WORKSPACE</span>
+ <span class="amount">$200</span>
+ </div>
+ <div class="cost-plus">+</div>
+ <div class="cost-part">
+ <span class="part-header">SALARY</span>
+ <span class="amount">$150</span>
+ </div>
+ <div class="cost-equals">=</div>
+ <div class="cost-part total">
+ <span class="amount">$350</span>
+ </div>
+ </div>
+ <div class="breakdown-detail">$7,000 total/month</div>
+ </div>
+ </div>
+ <p class="salary-note">
+ <strong>Average salary:</strong> ~$150/month per employee • Passed through 1:1 without markup
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- ==================== TRANSPARENCY ==================== -->
+ <section class="transparency-section" id="transparency">
+ <div class="container">
+ <div class="section-header">
+ <h2>100% Transparency. Zero Guesswork.</h2>
+ <p>Watch your team work in real-time. Access live feeds, digital time tracking, and complete performance visibility.</p>
+ </div>
+ 
+ <div class="transparency-grid">
+ <div class="transparency-content">
+ <h3>Your Team. Your Dashboard.</h3>
+ <p>We believe trust is built through transparency. Every client gets full access to live monitoring tools — you deserve to see exactly what you're paying for.</p>
+ 
+ <div class="transparency-features">
+ <div class="transparency-feature">
+ <div class="feature-icon-circle"></div>
+ <div>
+ <h4>Live Screen Feeds</h4>
+ <p>Watch any screen in real-time. See exactly what your team is working on.</p>
+ </div>
+ </div>
+ <div class="transparency-feature">
+ <div class="feature-icon-circle"></div>
+ <div>
+ <h4>Webcam Monitoring</h4>
+ <p>Verify attendance and engagement. Optional privacy mode available.</p>
+ </div>
+ </div>
+ <div class="transparency-feature">
+ <div class="feature-icon-circle">+/-</div>
+ <div>
+ <h4>Digital Time Tracking</h4>
+ <p>Punch-in/out timestamps. Know exactly when your team starts and ends.</p>
+ </div>
+ </div>
+ <div class="transparency-feature">
+ <div class="feature-icon-circle"></div>
+ <div>
+ <h4>Performance Reports</h4>
+ <p>Weekly and monthly reports. Track productivity trends over time.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="dashboard-preview">
+ <div class="dashboard-card">
+ <img src="https://cdn.staffedspaces.com/assets/NB_003_monitoring_dashboard_large_screen_grid_display_16x9.png" alt="Live monitoring dashboard">
+ </div>
+ <div class="live-indicator">
+ <div class="live-dot"></div>
+ LIVE
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ==================== TEAM ==================== -->
+ <section class="team-section">
+ <div class="container">
+ <div class="section-header section-header-dark">
+ <h2>Meet Your Support Team</h2>
+ <p>Dedicated professionals ensuring your team runs smoothly from day one.</p>
+ </div>
+ <div class="team-grid">
+ <div class="team-card">
+ <div class="team-avatar">
+ <img src="https://cdn.staffedspaces.com/assets/MJ_023_manager_reviewing_analytics_laptop_reports_thoughtful_5x6.png" alt="Account Manager">
+ </div>
+ <h4>Account Manager</h4>
+ <div class="role">Your Primary Contact</div>
+ <p>Single point of contact for all requests and strategic planning.</p>
+ </div>
+ <div class="team-card">
+ <div class="team-avatar">
+ <img src="https://cdn.staffedspaces.com/assets/MJ_029_team_lead_coaching_agent_mentoring_supportive_5x6.png" alt="Project Manager">
+ </div>
+ <h4>Project Manager</h4>
+ <div class="role">On-Site Supervisor</div>
+ <p>Daily oversight and team coordination in Bangladesh.</p>
+ </div>
+ <div class="team-card">
+ <div class="team-avatar">
+ <img src="https://cdn.staffedspaces.com/assets/MJ_011_customer_service_representative_headset_friendly_smile_5x6.png" alt="HR Coordinator">
+ </div>
+ <h4>HR Coordinator</h4>
+ <div class="role">People Operations</div>
+ <p>Recruiting, onboarding, and employee relations.</p>
+ </div>
+ <div class="team-card">
+ <div class="team-avatar">
+ <img src="https://cdn.staffedspaces.com/assets/MJ_013_data_entry_specialist_fast_typing_organized_desk_5x6.png" alt="IT Support">
+ </div>
+ <h4>IT Support</h4>
+ <div class="role">Technical Assistance</div>
+ <p>Hardware, software, connectivity issues resolved fast.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ==================== GLOBAL ==================== -->
+ <section class="global-section">
+ <div class="container">
+ <div class="global-grid">
+ <div class="global-content">
+ <h3>Serve Clients Across Time Zones</h3>
+ <p>With day and night shift options, your team can provide coverage when your customers need it most. Follow-the-sun support becomes affordable.</p>
+ <p>Our Bangladesh location offers optimal overlap with Europe, Middle East, and Asia — plus extended hours for US coverage.</p>
+ <div class="timezone-badges">
+ <div class="timezone-badge"><span class="flag"></span> Europe +5-6h</div>
+ <div class="timezone-badge"><span class="flag"></span> UAE +2h</div>
+ <div class="timezone-badge"><span class="flag"></span> USA +10-14h</div>
+ <div class="timezone-badge"><span class="flag"></span> Australia -4-6h</div>
+ </div>
+ </div>
+ <div class="global-image">
+ <img src="https://cdn.staffedspaces.com/assets/MJ_015_team_video_conference_large_screen_collaboration_16x9.png" alt="Global team video conference">
+ </div>
+ </div>
+ </div>
+ </section>
+ 
+ <!-- ==================== CONTACT ==================== -->
+ <section class="contact-section" id="contact">
+ <div class="container">
+ <div class="contact-grid">
+ <div class="contact-info">
+ <h3>Let's Build Your Team</h3>
+ <p>Ready to scale with transparency? Book a free consultation and we'll create a custom proposal within 48 hours.</p>
+ 
+ <div class="contact-methods">
+ <div class="contact-method">
+ <div class="method-icon"></div>
+ <div>
+ <h4>Email Us</h4>
+ <p><a href="mailto:info@staffedspaces.com">info@staffedspaces.com</a></p>
+ </div>
+ </div>
+ <div class="contact-method">
+ <div class="method-icon"></div>
+ <div>
+ <h4>WhatsApp</h4>
+ <p><a href="#">+971 XX XXX XXXX</a> (Instant Response)</p>
+ </div>
+ </div>
+ <div class="contact-method">
+ <div class="method-icon"></div>
+ <div>
+ <h4>Location</h4>
+ <p>Dubai, UAE (HQ)<br>Operations: Dhaka, Bangladesh</p>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="partnership-image">
+ <img src="https://cdn.staffedspaces.com/assets/MJ_050_handshake_business_partnership_trust_agreement_closeup_16x9.png" alt="Partnership handshake">
+ </div>
+ </div>
+ 
+ <div class="contact-form-wrapper">
+ <div class="form-header">
+ <h3>Request Free Consultation</h3>
+ <p>Tell us about your needs — no commitment required</p>
+ </div>
+ 
+ <form id="contact-form">
+ <div class="form-group">
+ <label for="name">Full Name <span class="required">*</span></label>
+ <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
+ </div>
+ <div class="form-group">
+ <label for="email">Work Email <span class="required">*</span></label>
+ <input type="email" id="email" name="email" class="form-control" placeholder="john@company.com" required>
+ </div>
+ <div class="form-group">
+ <label for="phone">Phone Number <span class="required">*</span></label>
+ <div class="phone-input-group">
+ <select id="countryCode" name="countryCode" class="form-control">
+ <option value="+971"> +971</option>
+ <option value="+1"> +1</option>
+ <option value="+44"> +44</option>
+ <option value="+49"> +49</option>
+ <option value="+33"> +33</option>
+ <option value="+31"> +31</option>
+ <option value="+41"> +41</option>
+ <option value="+61"> +61</option>
+ </select>
+ <input type="tel" id="phone" name="phone" class="form-control" placeholder="50 123 4567" required>
+ </div>
+ </div>
+ <div class="form-group">
+ <label for="company">Company Name</label>
+ <input type="text" id="company" name="company" class="form-control" placeholder="Your Company Inc.">
+ </div>
+ <div class="form-group">
+ <label for="teamSize">How many employees do you need? <span class="required">*</span></label>
+ <select id="teamSize" name="teamSize" class="form-control" required>
+ <option value="">Select team size...</option>
+ <option value="1-5">1-5 employees (Trial)</option>
+ <option value="6-10">6-10 employees (Professional)</option>
+ <option value="11-20">11-20 employees (Enterprise)</option>
+ <option value="21-50">21-50 employees (Multi-Room)</option>
+ <option value="50+">50+ employees (Custom)</option>
+ </select>
+ </div>
+ <div class="form-group">
+ <label>What roles are you looking for? <span class="hint">(Select all that apply)</span></label>
+ <div class="checkbox-grid">
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-support" name="roles" value="customer-support">
+ <label for="role-support">Customer Support</label>
+ </div>
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-data" name="roles" value="data-entry">
+ <label for="role-data">Data Entry / Admin</label>
+ </div>
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-va" name="roles" value="virtual-assistant">
+ <label for="role-va">Virtual Assistants</label>
+ </div>
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-content" name="roles" value="content">
+ <label for="role-content">Content / Social Media</label>
+ </div>
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-dev" name="roles" value="development">
+ <label for="role-dev">Software Development</label>
+ </div>
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-sales" name="roles" value="sales">
+ <label for="role-sales">Sales / Lead Gen</label>
+ </div>
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-marketing" name="roles" value="marketing">
+ <label for="role-marketing">Marketing / SEO</label>
+ </div>
+ <div class="checkbox-item">
+ <input type="checkbox" id="role-other" name="roles" value="other">
+ <label for="role-other">Other / Mixed Team</label>
+ </div>
+ </div>
+ </div>
+ <div class="form-group">
+ <label for="message">Anything else you'd like us to know?</label>
+ <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project, timeline, specific requirements..."></textarea>
+ </div>
+ <button type="submit" class="form-submit">Request Free Consultation →</button>
+ <p class="form-note">
+ By submitting, you agree to our <a href="#">Privacy Policy</a>. We'll never share your data.
+ </p>
+ </form>
+ </div>
+ </div>
+ </div>
+ </section>
+ 
+ <!-- ==================== FOOTER ==================== -->
+ <footer class="footer">
+ <div class="footer-container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <div class="logo">Staffed<span>Spaces</span></div>
+ <p>Fully managed remote teams with complete transparency. Your team, your space — from $350/employee/month all-in.</p>
+ </div>
+ <div class="footer-column">
+ <h4>Company</h4>
+ <ul>
+ <li><a href="#">About Us</a></li>
+ <li><a href="#features">How It Works</a></li>
+ <li><a href="#pricing">Pricing</a></li>
+ <li><a href="#contact">Contact</a></li>
+ </ul>
+ </div>
+ <div class="footer-column">
+ <h4>Services</h4>
+ <ul>
+ <li><a href="#">Customer Support</a></li>
+ <li><a href="#">Data Entry</a></li>
+ <li><a href="#">Virtual Assistants</a></li>
+ <li><a href="#">Development</a></li>
+ </ul>
+ </div>
+ <div class="footer-column">
+ <h4>Contact</h4>
+ <ul>
+ <li><a href="mailto:info@staffedspaces.com">info@staffedspaces.com</a></li>
+ <li><a href="#">Dubai, UAE</a></li>
+ <li><a href="#">WhatsApp</a></li>
+ <li><a href="#">LinkedIn</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>© 2025 Nexus Prime Enterprises LLC-FZ. All rights reserved.</p>
+ <div class="footer-legal">
+ <a href="#">Privacy Policy</a>
+ <a href="#">Terms of Service</a>
+ <a href="#">Imprint</a>
+ </div>
+ </div>
+ </div>
+ </footer>
+
+ <!-- ==================== SCRIPTS ==================== -->
+ <script type="text/javascript">
+ function googleTranslateElementInit() {
+ new google.translate.TranslateElement({
+ pageLanguage: 'en',
+ includedLanguages: 'en,de,fr,es,it,nl,pl,pt,ar,zh-CN,ja,ko',
+ layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+ }, 'google_translate_element');
+ }
+ </script>
+ <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ 
+ <script>
+ // Hero Slider
+ document.addEventListener('DOMContentLoaded', function() {
+ const sliderContainer = document.getElementById('sliderContainer');
+ const dots = document.querySelectorAll('.slider-dot');
+ let currentSlide = 0;
+ const totalSlides = 3;
+ const slideInterval = 5000;
+ let autoSlideTimer;
+ 
+ function goToSlide(index) {
+ currentSlide = index;
+ sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+ dots.forEach((dot, i) => {
+ dot.classList.remove('active');
+ if (i === currentSlide) dot.classList.add('active');
+ });
+ clearInterval(autoSlideTimer);
+ startAutoSlide();
+ }
+ 
+ function nextSlide() {
+ goToSlide((currentSlide + 1) % totalSlides);
+ }
+ 
+ function startAutoSlide() {
+ autoSlideTimer = setInterval(nextSlide, slideInterval);
+ }
+ 
+ dots.forEach((dot, index) => {
+ dot.addEventListener('click', () => goToSlide(index));
+ });
+ 
+ startAutoSlide();
+ 
+ sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
+ sliderContainer.addEventListener('mouseleave', startAutoSlide);
+ });
+ 
+ // Contact Form
+ document.getElementById('contact-form').addEventListener('submit', function(e) {
+ e.preventDefault();
+ const formData = new FormData(this);
+ const data = Object.fromEntries(formData);
+ data.fullPhone = data.countryCode + ' ' + data.phone;
+ const roles = [];
+ document.querySelectorAll('input[name="roles"]:checked').forEach(cb => roles.push(cb.value));
+ data.roles = roles;
+ console.log("Form submitted:", data);
+ alert("Thank you! We'll contact you within 24 hours.");
+ this.reset();
+ });
+ 
+ // Scroll Animations
+ const observer = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.style.opacity = '1';
+ entry.target.style.transform = 'translateY(0)';
+ }
+ });
+ }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+ 
+ document.querySelectorAll('.team-card, .contact-method, .transparency-feature, .feature-card').forEach(el => {
+ el.style.opacity = '0';
+ el.style.transform = 'translateY(20px)';
+ el.style.transition = 'all 0.6s ease-out';
+ observer.observe(el);
+ });
+ </script>
+ 
+ <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    
+    <!-- LeadConnector Chat Widget -->
+    <script 
+        src="https://beta.leadconnectorhq.com/loader.js"
+        data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="694ab05e000404496c79da6c">
+    </script>
+</body>
+</html>
