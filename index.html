@@ -2018,6 +2018,21 @@
 .modal-content h3 { color: var(--teal); margin: 25px 0 10px; font-size: 1.2rem; }
 .modal-content p, .modal-content li { color: var(--gray-500); line-height: 1.7; margin-bottom: 10px; }
 .modal-content ul { margin-left: 20px; margin-bottom: 15px; list-style: disc; }
+
+/* Hide floating chat widget - we have inline button */
+.lc_text-widget--horizontal { 
+  position: absolute !important;
+  left: -9999px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.lc_text-widget--horizontal.lc_text-widget--opened {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 </style>
 
  <!-- Schema.org JSON-LD for SEO -->
@@ -2815,11 +2830,11 @@
  <p><a href="mailto:info@staffedspaces.com">info@staffedspaces.com</a></p>
  </div>
  </div>
- <div class="contact-method" style="cursor:pointer" onclick="openChat()">
- <div class="method-icon"><i data-lucide="message-circle"></i></div>
+ <div class="contact-method" style="cursor:pointer; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: 12px;" onclick="openChat()">
+ <div class="method-icon" style="background: rgba(255,255,255,0.2);"><i data-lucide="message-circle" style="color: white;"></i></div>
  <div>
- <h4>Talk to AI</h4>
- <p>Got questions? Chat with our AI for instant answers.</p>
+ <h4 style="color: white; margin-bottom: 4px;">Chat with Us</h4>
+ <p style="color: rgba(255,255,255,0.9);">Talk to our AI assistant - instant answers 24/7</p>
  </div>
  </div>
  <div class="contact-method">
@@ -3195,5 +3210,5 @@ function closeModal(id) { document.getElementById(id).classList.remove('active')
 document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if(e.target === m) closeModal(m.id); }));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id)); });
 </script>
-<script>function openChat(){var btn=document.querySelector(".lc_text-widget--phone-icon");if(btn){btn.click()}else{document.getElementById("contact").scrollIntoView({behavior:"smooth"})}}</script></body>
+<script>function openChat(){var widget=document.querySelector(".lc_text-widget--horizontal");if(widget){widget.style.cssText="position:fixed!important;left:auto!important;right:20px!important;bottom:20px!important;opacity:1!important;pointer-events:auto!important;";var btn=document.querySelector(".lc_text-widget--phone-icon");if(btn)btn.click()}}</script></body>
 </html>
