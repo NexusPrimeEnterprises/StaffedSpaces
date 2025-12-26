@@ -2019,34 +2019,51 @@
 .modal-content p, .modal-content li { color: var(--gray-500); line-height: 1.7; margin-bottom: 10px; }
 .modal-content ul { margin-left: 20px; margin-bottom: 15px; list-style: disc; }
 
-/* Hide LeadConnector widget button (not the opened chat) */
-.lc_text-widget--horizontal:not(.lc_text-widget--opened),
-.lc_text-widget--embedded:not(.lc_text-widget--opened),
-div[class*="lc_text-widget"]:not(.lc_text-widget--opened) {
-  position: fixed !important;
-  bottom: -500px !important;
-  right: -500px !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-.lc_text-widget--opened {
-  position: fixed !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  z-index: 999999 !important;
+
+
+
+
+/* Mobile fixes */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll */
+  body, html { overflow-x: hidden; }
+  
+  /* Hide podcast details on mobile */
+  .podcast-chapters { display: none !important; }
+  
+  /* Support Infrastructure: 2x2 grid on mobile */
+  .team-section .team-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  .team-section .team-card {
+    padding: 24px 16px !important;
+  }
+  .team-section .team-card h4 {
+    font-size: 1.1rem !important;
+  }
+  .team-section .team-card p {
+    font-size: 0.85rem !important;
+  }
+  .team-section .team-card > div:last-child {
+    font-size: 0.7rem !important;
+  }
+  
+  /* Features list alignment */
+  .features-list {
+    text-align: left !important;
+  }
+  .features-list li {
+    justify-content: flex-start !important;
+  }
 }
 
-/* Hide Powered by branding at bottom of page */
-body > div:last-of-type:has(a[href*="staffedspaces.com"]) {
-  display: none !important;
+@media (max-width: 480px) {
+  /* Even smaller screens: stack vertically */
+  .team-section .team-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
-
-/* Tooltip hint styling */
-.tip { border-bottom: 1px dotted rgba(94, 234, 212, 0.5); cursor: help; }
 </style>
 
  <!-- Schema.org JSON-LD for SEO -->
@@ -2781,7 +2798,7 @@ body > div:last-of-type:has(a[href*="staffedspaces.com"]) {
 <div class="role" style="color: #5eead4; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">DEDICATED ACCOUNT TEAMS</div>
 <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Strategic planning, performance reviews, scaling roadmaps. Your success is our KPI.</p>
 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-<div style="color: #5eead4; font-size: 0.8rem;">✓ Weekly check-ins ✓ <span class="tip" title="Quarterly Business Reviews – Vierteljährliche Strategiegespräche">QBRs</span> ✓ 24h response</div>
+<div style="color: #5eead4; font-size: 0.8rem;">✓ Weekly check-ins ✓ QBRs ✓ 24h response</div>
 </div>
 </div>
 
@@ -2793,7 +2810,7 @@ body > div:last-of-type:has(a[href*="staffedspaces.com"]) {
 <div class="role" style="color: #5eead4; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">ON-SITE MANAGEMENT</div>
 <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Shift coordination, quality assurance, real-time monitoring. Your team, professionally managed.</p>
 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-<div style="color: #5eead4; font-size: 0.8rem;">✓ Live dashboards ✓ Daily reports ✓ <span class="tip" title="Service Level Agreement – Garantierte Reaktionszeiten">SLA</span> tracking</div>
+<div style="color: #5eead4; font-size: 0.8rem;">✓ Live dashboards ✓ Daily reports ✓ SLA tracking</div>
 </div>
 </div>
 
@@ -2805,7 +2822,7 @@ body > div:last-of-type:has(a[href*="staffedspaces.com"]) {
 <div class="role" style="color: #5eead4; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">TALENT OPERATIONS</div>
 <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Sourcing, vetting, onboarding, training. We find the right people and develop them.</p>
 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-<div style="color: #5eead4; font-size: 0.8rem;">✓ <span class="tip" title="Wir prüfen über 500 Bewerber pro Monat für optimale Auswahl">500+ candidates/mo</span> ✓ <span class="tip" title="Vom Auftrag bis zum einsatzbereiten Mitarbeiter in 3 Wochen">3-week hiring</span> ✓ Training</div>
+<div style="color: #5eead4; font-size: 0.8rem;">✓ 500+ candidates/mo ✓ 3-week hiring ✓ Training</div>
 </div>
 </div>
 
@@ -2817,7 +2834,7 @@ body > div:last-of-type:has(a[href*="staffedspaces.com"]) {
 <div class="role" style="color: #5eead4; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;">IT INFRASTRUCTURE</div>
 <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6;">Hardware, software, connectivity, security. Enterprise-grade IT at your service.</p>
 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-<div style="color: #5eead4; font-size: 0.8rem;">✓ 99.9% uptime ✓ <span class="tip" title="Dreifache Absicherung: Internet, Strom, Hardware">3x redundancy</span> ✓ <span class="tip" title="Network Operations Center – Rund-um-die-Uhr IT-Überwachung">24/7 NOC</span></div>
+<div style="color: #5eead4; font-size: 0.8rem;">✓ 99.9% uptime ✓ 3x redundancy ✓ 24/7 NOC</div>
 </div>
 </div>
 
@@ -2863,13 +2880,13 @@ body > div:last-of-type:has(a[href*="staffedspaces.com"]) {
  <p><a href="mailto:info@staffedspaces.com">info@staffedspaces.com</a></p>
  </div>
  </div>
- <div class="contact-method" style="cursor:pointer; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: 12px;" onclick="openChat()">
- <div class="method-icon" style="background: rgba(255,255,255,0.2);"><i data-lucide="message-circle" style="color: white;"></i></div>
- <div>
- <h4 style="color: white; margin-bottom: 4px;">Chat with Us</h4>
- <p style="color: rgba(255,255,255,0.9);">Talk to our AI assistant - instant answers 24/7</p>
- </div>
- </div>
+ <div class="contact-method">
+<div class="method-icon"><i data-lucide="message-circle"></i></div>
+<div>
+<h4>WhatsApp</h4>
+<p><a href="https://wa.me/971501234567" target="_blank">+971 50 123 4567</a></p>
+</div>
+</div>
  <div class="contact-method">
  <div class="method-icon"><i data-lucide="map-pin"></i></div>
  <div>
@@ -3243,25 +3260,5 @@ function closeModal(id) { document.getElementById(id).classList.remove('active')
 document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if(e.target === m) closeModal(m.id); }));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id)); });
 </script>
-<script>
-function openChat() {
-  var widget = document.querySelector('[class*="lc_text-widget"]');
-  if (widget) {
-    // Make widget visible with inline styles (overrides CSS)
-    widget.style.setProperty('position', 'fixed', 'important');
-    widget.style.setProperty('bottom', '20px', 'important');
-    widget.style.setProperty('right', '20px', 'important');
-    widget.style.setProperty('opacity', '1', 'important');
-    widget.style.setProperty('visibility', 'visible', 'important');
-    widget.style.setProperty('pointer-events', 'auto', 'important');
-    widget.style.setProperty('z-index', '999999', 'important');
-    
-    // Find and click the button
-    setTimeout(function() {
-      var btn = widget.querySelector('[class*="phone-icon"], [class*="open-icon"], button');
-      if (btn) btn.click();
-    }, 50);
-  }
-}
-</script></body>
+</body>
 </html>
