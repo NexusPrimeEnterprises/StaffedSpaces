@@ -2815,7 +2815,7 @@
  <p><a href="mailto:info@staffedspaces.com">info@staffedspaces.com</a></p>
  </div>
  </div>
- <div class="contact-method" style="cursor:pointer" onclick="document.querySelector('.lc_text-widget-open').click()">
+ <div class="contact-method" style="cursor:pointer" onclick="openChat()">
  <div class="method-icon"><i data-lucide="message-circle"></i></div>
  <div>
  <h4>Talk to AI</h4>
@@ -3117,5 +3117,5 @@ function closeModal(id) { document.getElementById(id).classList.remove('active')
 document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if(e.target === m) closeModal(m.id); }));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id)); });
 </script>
-</body>
+<script>function openChat(){var b=document.querySelector(".lc_text-widget-open, .chat-widget-container button, [class*=widget-open]");if(b){b.click()}else{document.getElementById("contact").scrollIntoView({behavior:"smooth"})}}</script></body>
 </html>
