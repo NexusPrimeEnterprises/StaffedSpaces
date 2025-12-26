@@ -2019,19 +2019,25 @@
 .modal-content p, .modal-content li { color: var(--gray-500); line-height: 1.7; margin-bottom: 10px; }
 .modal-content ul { margin-left: 20px; margin-bottom: 15px; list-style: disc; }
 
-/* Hide floating chat widget - we have inline button */
-.lc_text-widget--horizontal { 
-  position: absolute !important;
-  left: -9999px !important;
+/* Hide LeadConnector widget button (not the opened chat) */
+.lc_text-widget--horizontal:not(.lc_text-widget--opened),
+.lc_text-widget--embedded:not(.lc_text-widget--opened),
+div[class*="lc_text-widget"]:not(.lc_text-widget--opened) {
+  position: fixed !important;
+  bottom: -500px !important;
+  right: -500px !important;
   opacity: 0 !important;
+  visibility: hidden !important;
   pointer-events: none !important;
 }
-.lc_text-widget--horizontal.lc_text-widget--opened {
+.lc_text-widget--opened {
   position: fixed !important;
-  left: 0 !important;
+  bottom: 0 !important;
   right: 0 !important;
   opacity: 1 !important;
+  visibility: visible !important;
   pointer-events: auto !important;
+  z-index: 999999 !important;
 }
 </style>
 
