@@ -3195,5 +3195,29 @@ function closeModal(id) { document.getElementById(id).classList.remove('active')
 document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if(e.target === m) closeModal(m.id); }));
 document.addEventListener('keydown', e => { if(e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => closeModal(m.id)); });
 </script>
-<script>function openChat(){var b=document.querySelector(".lc_text-widget-open, .chat-widget-container button, [class*=widget-open]");if(b){b.click()}else{document.getElementById("contact").scrollIntoView({behavior:"smooth"})}}</script></body>
+<script>
+function openChat() {
+  var found = false;
+  document.querySelectorAll('div, button, span').forEach(function(el) {
+    if (found) return;
+    var cls = el.className || '';
+    if ((cls.includes('widget') && cls.includes('open')) || 
+        cls.includes('lc_text') || cls.includes('lc-text')) {
+      el.click();
+      found = true;
+    }
+  });
+  if (!found) {
+    document.querySelectorAll('*').forEach(function(el) {
+      if (found) return;
+      if (el.textContent && el.textContent.trim() === 'Call us here') {
+        el.closest('button, div[role=button], [onclick]').click();
+        found = true;
+      }
+    });
+  }
+  if (!found && window.leadConnector) { window.leadConnector.open(); found = true; }
+  if (!found) { document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); }
+}
+</script></body>
 </html>
