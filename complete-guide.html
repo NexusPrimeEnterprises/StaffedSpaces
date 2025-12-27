@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StaffedSpaces - The Complete Guide to Global Remote Teams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #2D6A6A;
+            --teal-dark: #1d4a4a;
+            --teal-light: #3d8a8a;
+            --gold: #D4A853;
+            --gold-light: #e4c87a;
+            --dark: #1E293B;
+            --gray-900: #0f172a;
+            --gray-700: #334155;
+            --gray-500: #64748b;
+            --gray-300: #cbd5e1;
+            --gray-100: #f1f5f9;
+            --gray-50: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--gray-100);
+        }
+
+        /* =============================================
+           CARD SYSTEM
+           ============================================= */
+
+        .card {
+            background: var(--white);
+            margin: 0 auto 24px auto;
+            max-width: 1200px;
+            border-radius: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card-content {
+            padding: 64px 80px;
+        }
+
+        @media (max-width: 968px) {
+            .card-content {
+                padding: 48px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-content {
+                padding: 32px 24px;
+            }
+        }
+
+        /* =============================================
+           COVER CARD
+           ============================================= */
+
+        .card-cover {
+            background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, var(--teal-light) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.12;
+            z-index: 1;
+        }
+
+        .cover-content {
+            flex: 1;
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .cover-content {
+                padding: 40px 24px;
+            }
+        }
+
+        .cover-logo {
+            width: 240px;
+            margin-bottom: 56px;
+            filter: brightness(0) invert(1);
+        }
+
+        .cover-title {
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 32px;
+            color: var(--white);
+        }
+
+        .cover-title span {
+            color: var(--gold);
+        }
+
+        @media (max-width: 968px) {
+            .cover-title {
+                font-size: 56px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cover-title {
+                font-size: 40px;
+            }
+        }
+
+        .cover-subtitle {
+            font-size: 24px;
+            color: var(--white);
+            opacity: 0.95;
+            max-width: 700px;
+            margin-bottom: 48px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .cover-subtitle {
+                font-size: 20px;
+            }
+        }
+
+        .cover-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+        }
+
+        .stat {
+            border-left: 4px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--white);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .cover-footer {
+            padding: 32px 80px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--white);
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .cover-footer {
+                padding: 24px;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* =============================================
+           TYPOGRAPHY
+           ============================================= */
+
+        h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--teal);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 36px;
+            }
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--teal);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 48px 0 24px 0;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            h3 {
+                font-size: 24px;
+            }
+        }
+
+        h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .intro {
+            font-size: 22px;
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .intro {
+                font-size: 19px;
+            }
+        }
+
+        /* =============================================
+           HERO IMAGE
+           ============================================= */
+
+        .hero-image {
+            width: 100%;
+            border-radius: 16px;
+            margin: 40px 0;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 15px;
+            color: var(--gray-500);
+            font-style: italic;
+            margin-top: -24px;
+            margin-bottom: 40px;
+        }
+
+        /* =============================================
+           GRIDS
+           ============================================= */
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        /* =============================================
+           INFO BOXES
+           ============================================= */
+
+        .info-box {
+            background: var(--gray-50);
+            border-left: 4px solid var(--teal);
+            padding: 32px;
+            border-radius: 12px;
+        }
+
+        .info-box h4 {
+            color: var(--teal);
+            margin-bottom: 16px;
+        }
+
+        .info-box p {
+            margin-bottom: 12px;
+        }
+
+        .info-box ul {
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .info-box li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .info-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        /* =============================================
+           HIGHLIGHT BOXES
+           ============================================= */
+
+        .highlight {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+            color: var(--white);
+            padding: 48px;
+            border-radius: 16px;
+            margin: 48px 0;
+        }
+
+        .highlight h3 {
+            color: var(--white);
+            margin-top: 0;
+            font-size: 32px;
+        }
+
+        .highlight p {
+            color: var(--white);
+            opacity: 0.95;
+            font-size: 19px;
+        }
+
+        /* =============================================
+           CALLOUT BOXES
+           ============================================= */
+
+        .callout {
+            background: var(--gold-light);
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, rgba(212, 168, 83, 0.05) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .callout-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--teal);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .callout p {
+            color: var(--dark);
+            font-size: 18px;
+        }
+
+        /* =============================================
+           TABLES
+           ============================================= */
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th {
+            background: var(--teal);
+            color: var(--white);
+            padding: 20px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-200);
+            background: var(--white);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--gray-50);
+        }
+
+        /* =============================================
+           PACKAGE CARDS
+           ============================================= */
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        .package-card {
+            background: var(--white);
+            border: 3px solid var(--gray-300);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15);
+            border-color: var(--teal);
+        }
+
+        .package-card.popular {
+            border-color: var(--gold);
+            border-width: 4px;
+        }
+
+        .package-card.popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .package-name {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--teal);
+            margin-bottom: 16px;
+        }
+
+        .package-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .package-price span {
+            font-size: 20px;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        .package-subtitle {
+            font-size: 16px;
+            color: var(--gray-500);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .package-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            color: var(--teal);
+            font-weight: 800;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* =============================================
+           MATH BREAKDOWN
+           ============================================= */
+
+        .math-box {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: 48px;
+            border-radius: 16px;
+            margin: 48px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .math-box h3 {
+            color: var(--gold);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 0;
+        }
+
+        .math-line {
+            font-size: 20px;
+            padding: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .math-line:last-child {
+            border-bottom: 2px solid var(--gold);
+            padding-top: 24px;
+            margin-top: 12px;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .math-line {
+                font-size: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            .math-line:last-child {
+                font-size: 22px;
+            }
+        }
+
+        /* =============================================
+           COST COMPARISON VISUAL
+           ============================================= */
+
+        .cost-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        @media (max-width: 768px) {
+            .cost-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cost-bar {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cost-bar-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .cost-bar-amount {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--teal);
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .cost-bar-visual {
+            height: 40px;
+            background: var(--teal);
+            border-radius: 8px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .cost-bar.expensive .cost-bar-visual {
+            background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+        }
+
+        .cost-bar.affordable .cost-bar-visual {
+            background: linear-gradient(90deg, var(--teal) 0%, var(--teal-light) 100%);
+            width: 7.5%;
+        }
+
+        /* =============================================
+           UTILITY
+           ============================================= */
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-large {
+            margin-top: 64px;
+        }
+
+        .mb-large {
+            margin-bottom: 64px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<div class="card card-cover">
+    <img src="https://nexusprimeenterprises.github.io/StaffedSpaces/assets/NB_001_modern_office_floor_to_ceiling_windows_macbook_rows_16x9.png" alt="Modern office space" class="cover-bg">
+    
+    <div class="cover-content">
+        <img src="https://nexusprimeenterprises.github.io/StaffedSpaces/assets/logo_400x188_website.png" alt="StaffedSpaces Logo" class="cover-logo">
+        
+        <h1 class="cover-title">
+            Build Your Global Team at<br>
+            <span>$1.47 Per Hour</span>
+        </h1>
+        
+        <p class="cover-subtitle">
+            Premium office infrastructure. English-speaking employees. Complete transparency. Zero visa costs. Everything you need to scale your business globally—without the Western price tag.
+        </p>
+
+        <div class="cover-stats">
+            <div class="stat">
+                <div class="stat-number">$1.47</div>
+                <div class="stat-label">Per Working Hour<br>(All-Inclusive)</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">90%+</div>
+                <div class="stat-label">Cost Reduction<br>vs. Western Markets</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Live Monitoring<br>Complete Transparency</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cover-footer">
+        <div>© 2026 Nexus Prime Enterprises LLC-FZ · Dubai, UAE</div>
+        <div>StaffedSpaces · Version 4.0 · January 2026</div>
+    </div>
+</div>
+
+<!-- ==================== PART 1: THE PROBLEM ==================== -->
+<div class="card">
+    <div class="card-content">
+        <span class="section-label">The Challenge</span>
+        <h2>Why Traditional Hiring Doesn't Scale</h2>
+        <p class="intro">Western businesses face an impossible equation: hire locally and pay crushing costs, or hire remotely and lose visibility and control. StaffedSpaces solves both problems.</p>
+
+        <img src="https://nexusprimeenterprises.github.io/StaffedSpaces/assets/INF_001_three_package_comparison_trial_professional_enterprise_16x9.png" alt="Traditional vs StaffedSpaces model comparison" class="hero-image">
+
+        <h3>The Real Cost of Western Employees</h3>
+
+        <div class="cost-comparison">
+            <div class="cost-bar expensive">
+                <div class="cost-bar-label">🇺🇸 United States (20 Employees)</div>
+                <div class="cost-bar-amount">$100,000+</div>
+                <div>Per month including salary, benefits, office space, equipment, taxes, and overhead</div>
+                <div class="cost-bar-visual"></div>
+            </div>
+            <div class="cost-bar affordable">
+                <div class="cost-bar-label">✈️ StaffedSpaces (20 Employees)</div>
+                <div class="cost-bar-amount">$7,500</div>
+                <div>Complete infrastructure, premium hardware, AI tools, 24/7 monitoring—everything included</div>
+                <div class="cost-bar-visual"></div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="info-box">
+                <h4>💸 Visa Costs Kill Flexibility</h4>
+                <p><strong>Dubai Example:</strong> $2,000 per employee just for the work visa. For 20 employees, that's <strong>$40,000 upfront</strong> before anyone starts working.</p>
+                <p>Every replacement costs another $2,000. Fire someone who isn't performing? Pay for the new visa.</p>
+                <p><strong>With StaffedSpaces:</strong> Zero visa costs. Employees work from Bangladesh facilities. Unlimited replacements included.</p>
+            </div>
+            <div class="info-box">
+                <h4>🐌 Slow, Expensive Scaling</h4>
+                <p>Need to add 20 employees in Western markets? Expect 3-6 months of recruiting, contracts, office space negotiations, equipment procurement, and onboarding.</p>
+                <p><strong>With StaffedSpaces:</strong> 2-4 weeks from contract signature to fully operational team with complete infrastructure.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">⚡ The Core Problem</div>
+            <p>Businesses need affordable, scalable workforce capacity. Remote work promises this—but traditional remote setups sacrifice visibility, control, and quality. You're forced to choose: pay crushing Western costs for oversight, or go remote and lose accountability. <strong>This is a false choice.</strong></p>
+        </div>
+
+        <h3>Global Cost Reality Check</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>20 Employees/Month</th>
+                    <th>Annual Cost</th>
+                    <th>vs. StaffedSpaces</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🇺🇸 United States</td>
+                    <td>$100,000 - $160,000</td>
+                    <td>$1.2M - $1.9M</td>
+                    <td>13x - 21x more</td>
+                </tr>
+                <tr>
+                    <td>🇬🇧 United Kingdom</td>
+                    <td>£80,000 - £120,000</td>
+                    <td>£960K - £1.4M</td>
+                    <td>11x - 16x more</td>
+                </tr>
+                <tr>
+                    <td>🇦🇺 Australia</td>
+                    <td>AUD 120,000 - 180,000</td>
+                    <td>AUD 1.4M - 2.1M</td>
+                    <td>12x - 18x more</td>
+                </tr>
+                <tr>
+                    <td>🇦🇪 UAE (Dubai)</td>
+                    <td>$60,000 - $100,000</td>
+                    <td>$720K - $1.2M</td>
+                    <td>8x - 13x more</td>
+                </tr>
+                <tr>
+                    <td>🇩🇪 Germany</td>
+                    <td>€100,000 - €140,000</td>
+                    <td>€1.2M - €1.7M</td>
+                    <td>13x - 19x more</td>
+                </tr>
+                <tr style="background: var(--teal); color: var(--white); font-weight: 700;">
+                    <td>✈️ StaffedSpaces</td>
+                    <td>$7,500</td>
+                    <td>$90,000</td>
+                    <td>BASELINE</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="font-size: 15px; color: var(--gray-500); text-align: center; font-style: italic;">
+            All figures include full employment costs: salaries, benefits, taxes, office space, equipment, and overhead
+        </p>
+    </div>
+</div>
+
+<!-- ==================== PART 2: THE SOLUTION ==================== -->
+<div class="card">
+    <div class="card-content">
+        <span class="section-label">The Solution</span>
+        <h2>How StaffedSpaces Works</h2>
+        <p class="intro">We combine Bangladesh's cost advantages with premium Western infrastructure standards and complete transparency. You get affordable employees in facilities that rival Silicon Valley offices—with 24/7 visibility into everything they do.</p>
+
+        <img src="https://nexusprimeenterprises.github.io/StaffedSpaces/assets/MJ_001_ultra_modern_office_glass_walls_macbook_workstations_natural_light_16x9.png" alt="StaffedSpaces premium office facility" class="hero-image">
+        <p class="image-caption">Our facilities feature floor-to-ceiling windows, premium MacBooks, 4K monitors, and ergonomic workstations</p>
+
+        <h3>The Three-Part Solution</h3>
+
+        <div class="grid-3">
+            <div class="info-box">
+                <h4>🏢 Premium Infrastructure</h4>
+                <p>Brand new MacBooks with 12-hour battery life, 28-inch 4K monitors, professional Jabra headsets, ergonomic furniture, fiber optic internet with Starlink and 4G backup, UPS batteries in every room, diesel generator for extended outages, 24/7 on-site security, fully air-conditioned environments.</p>
+            </div>
+            <div class="info-box">
+                <h4>👁️ Complete Transparency</h4>
+                <p>Live monitoring dashboard showing every employee's screen in real-time, webcam feeds confirming physical presence, digital punch clock with automatic hour calculation, daily attendance reports, weekly productivity summaries, monthly performance analyses. You never wonder if people are working.</p>
+            </div>
+            <div class="info-box">
+                <h4>🎯 Quality Employees</h4>
+                <p>IQ testing—only top 30% of applicants accepted, comprehensive English assessment before hiring, daily 1-hour English training reaching C1 level, specialized hiring by qualification (accountant = accounting degree), professional training through extensive trainer network.</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>🔐 This Is Not Cheap Remote Work</h3>
+            <p>We operate physical office facilities in professionally managed buildings. Employees don't work from home—they work from premium offices with enterprise-grade infrastructure. The monitoring isn't covert surveillance—it's transparent accountability that protects both you and your employees. This is remote work rebuilt from the ground up with Western standards and complete visibility.</p>
+        </div>
+
+        <h3>Where Your Employees Work</h3>
+
+        <div class="grid-2">
+            <div>
+                <img src="https://nexusprimeenterprises.github.io/StaffedSpaces/assets/MJ_009_row_macbooks_4k_monitors_jabra_headsets_organized_setup_16x9.png" alt="Premium workstation setup" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+                <h4>Hardware Worth $10,000+ Per Room</h4>
+                <p>Each workstation features brand new Apple MacBooks (not cheap Windows laptops), 28-inch 4K monitors (not 1080p screens), professional Jabra Evolve2 65 headsets (not generic earbuds), and Herman Miller-quality ergonomic chairs.</p>
+            </div>
+            <div>
+                <img src="https://nexusprimeenterprises.github.io/StaffedSpaces/assets/MJ_010_fiber_optic_network_switch_glowing_cables_connectivity_4x3.png" alt="Enterprise network infrastructure" style="width: 100%; border-radius: 12px; margin-bottom: 16px;">
+                <h4>Triple-Redundant Connectivity</h4>
+                <p>Primary fiber optic internet, Starlink satellite backup, 4G mobile data tertiary backup. Your operations never go down. Power outages? UPS batteries in every room plus building-wide diesel generator ensure uninterrupted work.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">🎯 The Critical Difference</div>
+            <p>Other companies give you access to freelancers. We give you dedicated employees working from premium facilities with enterprise infrastructure and complete transparency. Your employees don't share workstations with other companies—they work for you exclusively. You're not renting access to a platform—you're getting real office space with real employees and real visibility.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== PART 3: THE PACKAGES ==================== -->
+<div class="card">
+    <div class="card-content">
+        <span class="section-label">Service Packages</span>
+        <h2>Three Packages, Scalable Solutions</h2>
+        <p class="intro">From testing the model with 5 employees to running full 20+ person operations, we offer packages designed for every stage of business growth. All packages include the same premium infrastructure and transparency—you're choosing team size and privacy level.</p>
+
+        <div class="package-grid">
+            <!-- TRIAL PACKAGE -->
+            <div class="package-card">
+                <div class="package-name">Trial</div>
+                <div class="package-price">$1,500<span>/month</span></div>
+                <div class="package-subtitle">Infrastructure Fee · 90-Day Test</div>
+                <ul class="package-features">
+                    <li><strong>2 workstations</strong> supporting up to 5 employees</li>
+                    <li><strong>Shared room</strong> with other companies</li>
+                    <li>Premium MacBooks + 4K monitors</li>
+                    <li>Jabra headsets for all employees</li>
+                    <li>Live screen & webcam monitoring</li>
+                    <li>Fiber + Starlink + 4G backup</li>
+                    <li>UPS + diesel generator backup</li>
+                    <li>24/7 on-site security</li>
+                    <li>Bitrix24 CRM (Free edition)</li>
+                    <li>AI tools: ChatGPT, Claude, Gemini</li>
+                    <li><strong>Shared account manager</strong></li>
+                    <li><strong>3 free replacements</strong> during 90 days</li>
+                    <li>Must upgrade after 90 days</li>
+                </ul>
+                <p style="margin-top: 24px; font-weight: 600; color: var(--teal);">
+                    Total Cost: ~$2,200/month with employees
+                </p>
+            </div>
+
+            <!-- PROFESSIONAL PACKAGE -->
+            <div class="package-card popular">
+                <div class="package-name">Professional</div>
+                <div class="package-price">$2,600<span>/month</span></div>
+                <div class="package-subtitle">Infrastructure Fee · Best for Growth</div>
+                <ul class="package-features">
+                    <li><strong>4 workstations</strong> supporting up to 10 employees</li>
+                    <li><strong>Semi-private area</strong> separated for your company</li>
+                    <li>Premium MacBooks + 4K monitors</li>
+                    <li>Jabra headsets for all employees</li>
+                    <li>Live screen & webcam monitoring</li>
+                    <li>Fiber + Starlink + 4G backup</li>
+                    <li>UPS + diesel generator backup</li>
+                    <li>24/7 on-site security</li>
+                    <li>Bitrix24 CRM (Standard for 50 users)</li>
+                    <li>AI tools: ChatGPT, Claude, Gemini</li>
+                    <li><strong>Dedicated account manager</strong></li>
+                    <li><strong>Unlimited free replacements</strong></li>
+                    <li><strong>Priority HR support</strong></li>
+                    <li>3-month minimum, then monthly</li>
+                </ul>
+                <p style="margin-top: 24px; font-weight: 600; color: var(--teal);">
+                    Total Cost: ~$4,400/month with employees
+                </p>
+            </div>
+
+            <!-- ENTERPRISE PACKAGE -->
+            <div class="package-card">
+                <div class="package-name">Enterprise</div>
+                <div class="package-price">$4,000<span>/month</span></div>
+                <div class="package-subtitle">Infrastructure Fee · Best Value</div>
+                <ul class="package-features">
+                    <li><strong>8+ workstations</strong> supporting 20+ employees</li>
+                    <li><strong>Dedicated private room</strong> exclusively yours</li>
+                    <li>Premium MacBooks + 4K monitors</li>
+                    <li>Jabra headsets for all employees</li>
+                    <li>Live screen & webcam monitoring</li>
+                    <li>Fiber + Starlink + 4G backup</li>
+                    <li>UPS + diesel generator backup</li>
+                    <li>24/7 on-site security</li>
+                    <li>Bitrix24 CRM (Professional for 100 users)</li>
+                    <li>AI tools: ChatGPT, Claude, Gemini</li>
+                    <li><strong>Dedicated account manager</strong></li>
+                    <li><strong>Complete HR team + recruiter</strong></li>
+                    <li><strong>Unlimited free replacements</strong></li>
+                    <li>Scale in 8-workstation increments</li>
+                    <li>3-month minimum, then monthly</li>
+                </ul>
+                <p style="margin-top: 24px; font-weight: 600; color: var(--teal);">
+                    Total Cost: ~$7,500/month with employees
+                </p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>💡 Important: Trial Package Rules</h3>
+            <p>The Trial package is exclusively designed as a 90-day test period. After 90 days, you <strong>must upgrade</strong> to Professional or Enterprise to continue. Extension of Trial beyond 90 days is not possible. This ensures you can thoroughly test our service before committing to a larger engagement.</p>
+        </div>
+
+        <h3>Employee Salaries: 1:1 Pass-Through</h3>
+
+        <p>Unlike other providers who mark up salaries, we pass through employee costs <strong>exactly 1:1</strong> with zero markup. You pay the employee's salary directly—we add nothing on top.</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Role Type</th>
+                    <th>Monthly Salary Range</th>
+                    <th>Example Positions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Operational</strong></td>
+                    <td>$100 - $175</td>
+                    <td>Customer support, data entry, social media, basic admin</td>
+                </tr>
+                <tr>
+                    <td><strong>Specialized</strong></td>
+                    <td>$175 - $300</td>
+                    <td>Content writers, accountants, developers, marketing specialists</td>
+                </tr>
+                <tr>
+                    <td><strong>Project Managers</strong></td>
+                    <td>$350 - $500</td>
+                    <td>Team leads, senior coordinators, experienced managers</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="callout">
+            <div class="callout-title">🎯 Hiring by Qualification</div>
+            <p>When you need an accountant, we present candidates with accounting degrees or demonstrable professional experience in accounting. Same for developers, marketing specialists, and all other roles. We don't hire generic "virtual assistants"—we hire qualified professionals for specific functions.</p>
+        </div>
+
+        <h3>Scaling Path: From Test to Large Scale</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Scale Level</th>
+                    <th>Package</th>
+                    <th>Employees</th>
+                    <th>Monthly Cost</th>
+                    <th>Annual Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Test Phase</td>
+                    <td>Trial</td>
+                    <td>5</td>
+                    <td>~$2,200</td>
+                    <td>N/A (90 days only)</td>
+                </tr>
+                <tr>
+                    <td>Growing Business</td>
+                    <td>Professional</td>
+                    <td>10</td>
+                    <td>~$4,400</td>
+                    <td>~$52,800</td>
+                </tr>
+                <tr>
+                    <td>Established Operations</td>
+                    <td>Enterprise</td>
+                    <td>20</td>
+                    <td>~$7,500</td>
+                    <td>~$90,000</td>
+                </tr>
+                <tr>
+                    <td>Expanding Team</td>
+                    <td>2x Enterprise</td>
+                    <td>40</td>
+                    <td>~$15,000</td>
+                    <td>~$180,000</td>
+                </tr>
+                <tr>
+                    <td>Large Scale</td>
+                    <td>4x Enterprise</td>
+                    <td>80</td>
+                    <td>~$30,000</td>
+                    <td>~$360,000</td>
+                </tr>
+                <tr>
+                    <td>Very Large Scale</td>
+                    <td>5x Enterprise</td>
+                    <td>100</td>
+                    <td>~$37,500</td>
+                    <td>~$450,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="font-size: 16px; color: var(--gray-500); text-align: center; margin-top: 32px;">
+            Scaling is completely linear. No complexity jumps, no hidden costs as you grow. The math stays simple and predictable at every level.
+        </p>
+    </div>
+</div>
+
+<!-- ==================== PART 4: THE MATH ==================== -->
+<div class="card">
+    <div class="card-content">
+        <span class="section-label">The Numbers</span>
+        <h2>How We Deliver $1.47 Per Hour</h2>
+        <p class="intro">The StaffedSpaces model works through an ingenious shift system that maximizes infrastructure utilization. Here's the complete mathematical breakdown of how we achieve industry-leading cost efficiency.</p>
+
+        <img src="https://nexusprimeenterprises.github.io/StaffedSpaces/assets/INF_012_workstation_utilization_diagram_two_shifts_rotation_16x9.png" alt="Shift system diagram" class="hero-image">
+
+        <h3>The Shift System Explained</h3>
+
+        <div class="grid-2">
+            <div class="info-box">
+                <h4>🌅 Day Shift</h4>
+                <p><strong>12-hour shift:</strong> 8:00 AM - 8:00 PM</p>
+                <p><strong>Break period:</strong> 4 hours (flexible timing)</p>
+                <p><strong>Net work time:</strong> 8 hours</p>
+                <p><strong>Work schedule:</strong> 5 days per week</p>
+                <p>Employees clock in via digital tablet, take their 4-hour break (lunch, prayers, rest), and clock out after 8 hours of productive work.</p>
+            </div>
+            <div class="info-box">
+                <h4>🌙 Night Shift</h4>
+                <p><strong>12-hour shift:</strong> 8:00 PM - 8:00 AM</p>
+                <p><strong>Break period:</strong> 4 hours (flexible timing)</p>
+                <p><strong>Net work time:</strong> 8 hours</p>
+                <p><strong>Work schedule:</strong> 5 days per week</p>
+                <p>Night shift employees use the same premium workstations. Infrastructure is utilized 24/7, maximizing value from the $10,000+ hardware investment.</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">⚡ Why This Matters</div>
+            <p>Traditional offices sit empty 16+ hours per day. Workstations are idle nights and weekends. We maximize utilization through two shifts—the same premium MacBook and 4K monitor serves two employees, not one. This isn't about overworking people—each employee works standard 8-hour days. It's about smart infrastructure utilization.</p>
+        </div>
+
+        <h3>The Complete Math: Enterprise Package Breakdown</h3>
+
+        <div class="math-box">
+            <h3>📊 Enterprise Package: 20 Employees</h3>
+            
+            <div class="math-line">
+                <span>Infrastructure fee per month:</span>
+                <span>$4,000</span>
+            </div>
+            <div class="math-line">
+                <span>Average employee salaries (20 × ~$175):</span>
+                <span>$3,500</span>
+            </div>
+            <div class="math-line">
+                <span>Total monthly cost:</span>
+                <span>$7,500</span>
+            </div>
+            
+            <div style="height: 24px;"></div>
+            
+            <div class="math-line">
+                <span>Hours per employee per month (8h × ~21 days):</span>
+                <span>~168 hours</span>
+            </div>
+            <div class="math-line">
+                <span>Total monthly hours (20 employees):</span>
+                <span>3,360 hours</span>
+            </div>
+            <div class="math-line">
+                <span>Working months per year:</span>
+                <span>~12.15 months*</span>
+            </div>
+            <div class="math-line">
+                <span>Adjusted monthly hours:</span>
+                <span>~255 hours/employee</span>
+            </div>
+            <div class="math-line">
+                <span>Total hours delivered (20 × 255):</span>
+                <span>5,100 hours</span>
+            </div>
+            
+            <div style="height: 24px;"></div>
+            
+            <div class="math-line">
+                <span>Cost per working hour ($7,500 ÷ 5,100):</span>
+                <span>$1.47/hour</span>
+            </div>
+        </div>
+
+        <p style="font-size: 14px; color: var(--gray-500); text-align: center; font-style: italic; margin-top: 16px;">
+            *Accounting for months with different working days (20-22 days). Annual average is 255 working hours per employee per month.
+        </p>
+
+        <h3>What $1.47 Per Hour Actually Includes</h3>
+
+        <div class="grid-3">
+            <div class="info-box">
+                <h4>💻 Premium Hardware</h4>
+                <ul>
+                    <li>Brand new MacBook</li>
+                    <li>28" 4K monitor</li>
+                    <li>Jabra Evolve2 65 headset</li>
+                    <li>Ergonomic chair & desk</li>
+                    <li>All accessories & cables</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h4>🏢 Full Infrastructure</h4>
+                <ul>
+                    <li>Professional office space</li>
+                    <li>Triple-redundant internet</li>
+                    <li>Backup power (UPS + generator)</li>
+                    <li>24/7 security</li>
+                    <li>Air conditioning</li>
+                    <li>Kitchen & break areas</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h4>🛠️ Complete Support</h4>
+                <ul>
+                    <li>Dedicated account manager</li>
+                    <li>Complete HR team</li>
+                    <li>On-site IT support</li>
+                    <li>Bitrix24 CRM Professional</li>
+                    <li>AI tools (ChatGPT, Claude, Gemini)</li>
+                    <li>Live monitoring system</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Cost Comparison: Enterprise Package vs. Western Markets</h3>
+
+        <div class="cost-comparison" style="grid-template-columns: 1fr;">
+            <div class="info-box" style="border-left-color: var(--gold); background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(212, 168, 83, 0.02) 100%);">
+                <h4>🇺🇸 Hiring 20 Employees in the United States</h4>
+                <div class="math-line" style="border-color: var(--gray-300); color: var(--dark);">
+                    <span>Average salary per employee:</span>
+                    <span>$4,000 - $6,000/month</span>
+                </div>
+                <div class="math-line" style="border-color: var(--gray-300); color: var(--dark);">
+                    <span>Benefits (health, 401k, etc.):</span>
+                    <span>+30-40%</span>
+                </div>
+                <div class="math-line" style="border-color: var(--gray-300); color: var(--dark);">
+                    <span>Office space (20 desks):</span>
+                    <span>$8,000 - $15,000/month</span>
+                </div>
+                <div class="math-line" style="border-color: var(--gray-300); color: var(--dark);">
+                    <span>Equipment per employee:</span>
+                    <span>$2,000 - $3,000 upfront</span>
+                </div>
+                <div class="math-line" style="border-color: var(--gray-300); color: var(--dark);">
+                    <span>HR & admin overhead:</span>
+                    <span>$10,000 - $20,000/month</span>
+                </div>
+                <div class="math-line" style="border-color: var(--gold); color: var(--dark); font-weight: 800; font-size: 24px;">
+                    <span>Total monthly cost:</span>
+                    <span style="color: #dc2626;">$100,000 - $160,000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>💰 The Savings Are Staggering</h3>
+            <p style="font-size: 22px; margin-bottom: 24px;">StaffedSpaces Enterprise ($7,500/month) delivers what costs $100,000+ in the US. That's a <strong>92.5% cost reduction</strong> with equivalent or better infrastructure.</p>
+            <p>Over 12 months: US costs = $1.2M - $1.9M. StaffedSpaces = $90,000. You save <strong>over $1.1M annually</strong> with a 20-person team.</p>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">🎯 Why This Isn't "Exploitation"</div>
+            <p>We pay competitive Bangladeshi salaries—often 2-3x what local employers pay. Employees receive premium office environments they couldn't access elsewhere, professional English training, AI tools, and career development. The cost difference reflects global cost-of-living variations, not unfair compensation. A $300/month salary in Bangladesh provides the same quality of life as a $3,000+ salary in the US.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== FOOTER SEPARATOR ==================== -->
+<div style="text-align: center; padding: 64px 20px; background: var(--gray-100);">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h3 style="color: var(--teal); font-size: 32px; margin-bottom: 16px;">This is Part 1 of 3</h3>
+        <p style="color: var(--gray-600); font-size: 18px; line-height: 1.6;">
+            You've seen the foundation: the problem, our solution, the packages, and the math.<br>
+            <strong>Coming next:</strong> Part 2 covers infrastructure details, operations, transparency systems, and team structure.
+        </p>
+    </div>
+</div>
+
+<div style="text-align: center; padding: 40px 20px; color: var(--gray-500); font-size: 14px; background: var(--white);">
+    <p>© 2026 Nexus Prime Enterprises LLC-FZ. All rights reserved.</p>
+    <p style="margin-top: 8px;">Meydan Grandstand, 6th Floor · Meydan Road, Nad Al Sheba · Dubai, UAE</p>
+    <p style="margin-top: 12px; font-weight: 600; color: var(--teal);">StaffedSpaces · Transparency · Leverage · Growth</p>
+</div>
+
+</body>
+</html>
