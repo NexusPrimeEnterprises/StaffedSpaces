@@ -457,91 +457,124 @@
         .package-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 32px;
             margin: 48px 0;
         }
 
-        @media (max-width: 968px) {
+        @media (max-width: 1024px) {
             .package-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                max-width: 500px;
+                margin: 48px auto;
             }
         }
 
         .package-card {
             background: var(--white);
-            border: 3px solid var(--gray-300);
             border-radius: 24px;
-            padding: 48px 40px;
+            padding: 40px 32px;
+            border: 1px solid rgba(45, 106, 106, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
             position: relative;
-            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 4px 25px rgba(45, 106, 106, 0.06);
+            height: 100%;
         }
 
         .package-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15);
-            border-color: var(--teal);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(45, 106, 106, 0.15);
         }
 
         .package-card.popular {
-            border-color: var(--gold);
-            border-width: 4px;
-            transform: scale(1.05);
-        }
-
-        .package-card.popular:hover {
-            transform: scale(1.05) translateY(-8px);
+            border: 2px solid var(--teal);
+            background: linear-gradient(180deg, #f0f7f7 0%, var(--white) 100%);
         }
 
         .package-card.popular::before {
-            content: 'MOST POPULAR';
+            content: 'Most Popular';
             position: absolute;
-            top: -16px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--gold);
-            color: var(--white);
             padding: 8px 24px;
-            border-radius: 24px;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: white;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .package-name {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--teal);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .package-price {
-            font-size: 56px;
+            font-size: 1.6rem;
             font-weight: 800;
             color: var(--dark);
-            margin-bottom: 12px;
-            line-height: 1;
             text-align: center;
-        }
-
-        .package-price span {
-            font-size: 22px;
-            color: var(--gray-500);
-            font-weight: 500;
+            margin-bottom: 5px;
         }
 
         .package-subtitle {
-            font-size: 17px;
             color: var(--gray-500);
-            margin-bottom: 40px;
-            font-weight: 500;
+            font-size: 0.95rem;
             text-align: center;
-            padding-bottom: 32px;
-            border-bottom: 2px solid var(--gray-200);
+            margin-bottom: 20px;
+        }
+
+        .price-container {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+            margin-bottom: 25px;
+        }
+
+        .package-price {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+        }
+
+        .package-price span {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+            font-weight: 500;
+            display: block;
+            margin-top: 8px;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-top: 10px;
+        }
+
+        .highlight-box {
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 18px;
+            text-align: center;
+            background: linear-gradient(135deg, #fef3e2 0%, #fde9cc 100%);
+            border: 1px solid #f5c77e;
+        }
+
+        .highlight-box h4 {
+            color: #b45309;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .highlight-box p {
+            color: #c2630e;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
         }
 
         .package-features {
@@ -552,12 +585,12 @@
         }
 
         .package-features li {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--gray-200);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             display: flex;
             align-items: flex-start;
-            gap: 16px;
-            font-size: 16px;
+            gap: 12px;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
@@ -569,9 +602,8 @@
             content: '✓';
             color: var(--teal);
             font-weight: 800;
-            font-size: 24px;
+            font-size: 18px;
             flex-shrink: 0;
-            line-height: 1;
         }
 
         .package-features li strong {
@@ -909,79 +941,104 @@
             <!-- TRIAL PACKAGE -->
             <div class="package-card">
                 <div class="package-name">Trial</div>
-                <div class="package-price">$1,500<span>/month</span></div>
-                <div class="package-subtitle">Infrastructure Fee · 90-Day Test</div>
-                <ul class="package-features">
-                    <li><strong>2 workstations</strong> supporting up to 5 employees</li>
-                    <li><strong>Shared room</strong> with other companies</li>
-                    <li>Premium MacBooks + 4K monitors</li>
-                    <li>Jabra headsets for all employees</li>
-                    <li>Live screen & webcam monitoring</li>
-                    <li>Fiber + Starlink + 4G backup</li>
-                    <li>UPS + diesel generator backup</li>
-                    <li>24/7 on-site security</li>
-                    <li>Bitrix24 CRM (Free edition)</li>
-                    <li>AI tools: ChatGPT, Claude, Gemini</li>
-                    <li><strong>Shared account manager</strong></li>
-                    <li><strong>3 free replacements</strong> during 90 days</li>
-                    <li>Must upgrade after 90 days</li>
-                </ul>
-                <p style="margin-top: 24px; font-weight: 600; color: var(--teal);">
-                    Total Cost: ~$2,200/month with employees
+                <div class="package-subtitle">Test our service for 90 days</div>
+                
+                <div class="price-container">
+                    <div class="package-price">$750<span>/ workstation / month</span></div>
+                    <div class="price-note">$1,500/month for 2 workstations</div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Team Size</h4>
+                    <p>2 Workstations<br>Up to 5 Employees</p>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--gray-500); text-align: center; margin-bottom: 20px;">
+                    ⚠ Shared room — limited privacy.<br>
+                    After 90 days: upgrade to 4+ required.
                 </p>
+
+                <ul class="package-features">
+                    <li><strong>Workspace & Hardware</strong></li>
+                    <li>• Shared room</li>
+                    <li>✓ MacBooks + 4K monitors</li>
+                    <li>✓ Jabra headsets</li>
+                    <li><strong>Infrastructure</strong></li>
+                    <li>✓ Fiber + backup internet</li>
+                    <li>✓ UPS + generator</li>
+                    <li>✓ 24/7 security</li>
+                    <li><strong>Support</strong></li>
+                    <li>• Shared account manager</li>
+                    <li>• 2 free replacements</li>
+                </ul>
             </div>
 
             <!-- PROFESSIONAL PACKAGE -->
             <div class="package-card popular">
                 <div class="package-name">Professional</div>
-                <div class="package-price">$2,600<span>/month</span></div>
-                <div class="package-subtitle">Infrastructure Fee · Best for Growth</div>
-                <ul class="package-features">
-                    <li><strong>4 workstations</strong> supporting up to 10 employees</li>
-                    <li><strong>Semi-private area</strong> separated for your company</li>
-                    <li>Premium MacBooks + 4K monitors</li>
-                    <li>Jabra headsets for all employees</li>
-                    <li>Live screen & webcam monitoring</li>
-                    <li>Fiber + Starlink + 4G backup</li>
-                    <li>UPS + diesel generator backup</li>
-                    <li>24/7 on-site security</li>
-                    <li>Bitrix24 CRM (Standard for 50 users)</li>
-                    <li>AI tools: ChatGPT, Claude, Gemini</li>
-                    <li><strong>Dedicated account manager</strong></li>
-                    <li><strong>Unlimited free replacements</strong></li>
-                    <li><strong>Priority HR support</strong></li>
-                    <li>3-month minimum, then monthly</li>
-                </ul>
-                <p style="margin-top: 24px; font-weight: 600; color: var(--teal);">
-                    Total Cost: ~$4,400/month with employees
+                <div class="package-subtitle">Enhanced privacy, better value</div>
+                
+                <div class="price-container">
+                    <div class="package-price">$650<span>/ workstation / month</span></div>
+                    <div class="price-note">$2,600/month for 4 workstations</div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Team Size</h4>
+                    <p>4 Workstations<br>Up to 10 Employees</p>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--gray-500); text-align: center; margin-bottom: 20px;">
+                    Semi-private area — your team in a separated section.
                 </p>
+
+                <ul class="package-features">
+                    <li><strong>Workspace & Hardware</strong></li>
+                    <li>✓ Semi-private area</li>
+                    <li>✓ MacBooks + 4K monitors</li>
+                    <li>✓ Jabra headsets</li>
+                    <li><strong>Infrastructure</strong></li>
+                    <li>✓ Fiber + backup internet</li>
+                    <li>✓ UPS + generator</li>
+                    <li>✓ 24/7 security</li>
+                    <li><strong>Support</strong></li>
+                    <li>✓ Dedicated account manager</li>
+                    <li>✓ Unlimited replacements</li>
+                </ul>
             </div>
 
             <!-- ENTERPRISE PACKAGE -->
             <div class="package-card">
                 <div class="package-name">Enterprise</div>
-                <div class="package-price">$4,000<span>/month</span></div>
-                <div class="package-subtitle">Infrastructure Fee · Best Value</div>
-                <ul class="package-features">
-                    <li><strong>8+ workstations</strong> supporting 20+ employees</li>
-                    <li><strong>Dedicated private room</strong> exclusively yours</li>
-                    <li>Premium MacBooks + 4K monitors</li>
-                    <li>Jabra headsets for all employees</li>
-                    <li>Live screen & webcam monitoring</li>
-                    <li>Fiber + Starlink + 4G backup</li>
-                    <li>UPS + diesel generator backup</li>
-                    <li>24/7 on-site security</li>
-                    <li>Bitrix24 CRM (Professional for 100 users)</li>
-                    <li>AI tools: ChatGPT, Claude, Gemini</li>
-                    <li><strong>Dedicated account manager</strong></li>
-                    <li><strong>Complete HR team + recruiter</strong></li>
-                    <li><strong>Unlimited free replacements</strong></li>
-                    <li>Scale in 8-workstation increments</li>
-                    <li>3-month minimum, then monthly</li>
-                </ul>
-                <p style="margin-top: 24px; font-weight: 600; color: var(--teal);">
-                    Total Cost: ~$7,500/month with employees
+                <div class="package-subtitle">Your own private office</div>
+                
+                <div class="price-container">
+                    <div class="package-price">$500<span>/ workstation / month</span></div>
+                    <div class="price-note">$4,000/month for 8 workstations</div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Team Size</h4>
+                    <p>8+ Workstations<br>Up to 20+ Employees</p>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--gray-500); text-align: center; margin-bottom: 20px;">
+                    Dedicated private room — exclusively for your company.
                 </p>
+
+                <ul class="package-features">
+                    <li><strong>Workspace & Hardware</strong></li>
+                    <li>✓ <strong>Private room</strong></li>
+                    <li>✓ MacBooks + 4K monitors</li>
+                    <li>✓ Jabra headsets</li>
+                    <li><strong>Infrastructure</strong></li>
+                    <li>✓ Fiber + backup internet</li>
+                    <li>✓ UPS + generator</li>
+                    <li>✓ 24/7 security</li>
+                    <li><strong>Support</strong></li>
+                    <li>✓ Dedicated account manager</li>
+                    <li>✓ <strong>Full HR team</strong></li>
+                </ul>
             </div>
         </div>
 
